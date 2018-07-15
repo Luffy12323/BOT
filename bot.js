@@ -1357,9 +1357,10 @@ client.on('message', message => {
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('---bcowner')){
- if(!message.author.id === '411911292643704854') return;
-message.channel.sendMessage(' جار ارسال الرسالة | ✅')
+if (message.content.startsWith('>bcall')){
+ if (message.author.id !== '459397282169618462') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '459397282169618462') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
 })
@@ -2043,46 +2044,7 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 });  
    
    
-client.on('message', function(message) {
-    if(message.content.startsWith(prefix + "-report")) {
-        let messageArgs = message.content.split(" ").slice(1).join(" ");
-        let messageReason = message.content.split(" ").slice(2).join(" ");
-        const report = message.guild.channels.find("name", "report")
-        if(!message.guild.channels.find("name","report")) return message.channel.send('انشء روم باسم   \`report \`')
-        if(!messageReason) return message.reply("**# Specify a reason!**");
-    let mUser = message.mentions.users.first();
-    if(!mUser) return message.channel.send("Couldn't find user.");
-    let Rembed = new Discord.RichEmbed()
-    .setTitle("`New Report 📃`")
-    .setThumbnail(message.author.avatarURL)
-    .addField("**- Reported User:**",mUser,true)
-    .addField("**- Reported User ID:**",mUser.id,true)
-    .addField("**- Reason:**",messageReason,true)
-    .addField("**- Channel:**",message.channel,true)
-		 .setFooter('DK BOT' , client.user.avatarURL)
-    
-message.channel.send(Rembed)
-message.channel.send("``Are you sure you want to send this report???``").then(msg => {
-    msg.react("✅")
-    msg.react("❌")
-.then(() => msg.react('❌'))
-.then(() =>msg.react('✅'))
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
 
-let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 60000 });
-let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 60000 });
-reaction1.on("collect", r => {
-    report.send(Rembed)
-    message.reply("**- Done! 🎇**");
-})
-reaction2.on("collect", r => {
-    message.reply("**- Canceled**").then(message => {message.delete(4000)})
-msg.delete();
-})
-})
-}
-});
 
 
 
