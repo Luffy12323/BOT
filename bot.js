@@ -1123,102 +1123,24 @@ client.on("message", message => {
 });
 
 
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === "-help") {
-  let embed = new Discord.RichEmbed()
-          .setAuthor(message.author.username, message.author.avatarURL)
-           .setThumbnail(message.author.avatarURL)
-                 .setTimestamp()
-    .setDescription(`
-***
-:white_small_square:  ( اوامر الادارة***
-**
-للترحيب و للمغادرة اعمل شات اسمه
-:arrow_right:  welcome
+client.on("message", message => {
+ if (message.content === "-help") {
+  const embed = new Discord.RichEmbed()  
+      .setColor("#FABE16") 
+      .setDescription(`
+	  
+	      **Select One:**
+			 
+**[ -help-public ✨  أوامر عامة ]**
 
-لجعل البوت يسوي لوق اعمل شات اسمه
-:arrow_right:  log
-
-
-امر خاص ب اونر البوت بس  :lock:
--ownerbot
-
-
-:small_orange_diamond:   جعل ال��وت يكتب يلي تكتبه
--say
-:small_orange_diamond:  لمسح الشات
--clear
-:white_check_mark:  للباند
--ban
-:white_check_mark:  للطرد
--kick
-:loudspeaker:  لارسال رسالة لجميع اعضاء السيرفر
--bc
-:speaker:  لأعطا�� شخص ميوت بالسيرفر - يلزم ان يكون بالسيرفر رتبة Muted
--mute
-:loud_sound:  لفك الميوت عن شخص
--unmute
-:roller_coaster:  لمعرفة عدد بوتات السيرفر
--allbots
-:printer:   لعمل اقتراح | لازم روم اسمه ➦suggestions
--sug
-:sparkles:   لمعرفة البوت بكم سيرفر موجود
--numservers
-
-***----------------------------------------------***
-
-:white_small_square: ( الاوامر العامة***
-**
-:small_orange_diamond:  لفتح المصحف
--quran | !قران
-:floppy_disk:  لمعرفة حالة البوت
--bot
-:small_orange_diamond:  لمعرفة حالة الاعضاء بالسيرفر
--mb
-:small_blue_diamond:  لرؤية صورة اي واحد لازم منشن
--avatar
-:small_blue_diamond:  لدعوة البوت لسيرفرك
--inv
-:two_men_holding_hands:  لطلب الزواج هههه
--marry
-:small_blue_diamond:  معلومات الشخص
--id
-:small_blue_diamond:  لاستخدام الترجمة
--tr
-:battery:  امعرفة سرعة اتصال البوت
--ping
-:small_blue_diamond:  لعبة لو خيروك
--لو خيروك
-:diamonds:  لتغيير اللون | ممكن مو شغال لانو قيد التطوير!!
--الوان
-:small_blue_diamond:  أسئلة حول ماينكرافت
--minecraft
-:small_blue_diamond:  لعرض سكنات ماينكرافت
--mcskin
-:hourglass:  لمعرفة لفلك "مستواك"
--level
---------------------------------------------
-رابط سيرفر البوت
-https://discord.gg/pTeh9Wq
---------------------------------------
-رابط البوت ادا تبي تضيفو لسيرفرك
-سوي -inv
-------------------------------------
-**
-
-`)
-.setColor('RANDOM')
-message.author.sendEmbed(embed)
-}
-});
-
-client.on('message', msg => {
-      if(!msg.channel.guild) return;
-    if(msg.content.startsWith (prefix  + 'help')) {
-    msg.reply('**:runner: شيك علي الخاص**');
-  }
-});
+**[ -help-admin 🙏 أوامر إدارية ]**
+			 
+**[ -help-games 🎮 أوامر الاألعاب ]**
+	  `)
+   message.channel.sendEmbed(embed)
+    
+   }
+   }); 
 
 
 
