@@ -786,7 +786,7 @@ message.channel.sendEmbed(cat);
 
 client.on("message", function(message) {                   
     if(!message.channel.guild) return;
-       if(message.content.startsWith(prefix + 'الوان')) {
+       if(message.content.startsWith(prefix + 'color')) {
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
        message.channel.sendFile(`https://media.discordapp.net/attachments/444071272503050241/450979273206005780/colors.png`).then(msg => {
         
@@ -890,7 +890,7 @@ let y3Filter = (reaction, user) => reaction.emoji.name === '💚' && user.id ===
       
                                                     
                                y3.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "y1"))
+                                   message.member.addRole(message.guild.roles.find("name", "green"))
                                    
                                    
                             
@@ -912,7 +912,7 @@ let y4Filter = (reaction, user) => reaction.emoji.name === '💜' && user.id ===
       
                                                     
                                y4.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "y2"))
+                                   message.member.addRole(message.guild.roles.find("name", "purple"))
                                    
                                    
                             
@@ -934,7 +934,7 @@ let y5Filter = (reaction, user) => reaction.emoji.name === '💙' && user.id ===
       
                                                     
                                y5.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "y3"))
+                                   message.member.addRole(message.guild.roles.find("name", "aqua"))
                                    
                                    
                             
@@ -957,11 +957,11 @@ let y6Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === 
                                y6.on("collect", r => {
                                    message.member.removeRole(message.guild.roles.find("name", "red"))
                                    
-                                   message.member.removeRole(message.guild.roles.find("name", "y3"))
+                                   message.member.removeRole(message.guild.roles.find("name", "aqua"))
                                    message.member.removeRole(message.guild.roles.find("name", "black"))
                                    message.member.removeRole(message.guild.roles.find("name", "yellow"))
-                                  message.member.removeRole(message.guild.roles.find("name", "y1"))
-                                  message.member.removeRole(message.guild.roles.find("name", "y2"))
+                                  message.member.removeRole(message.guild.roles.find("name", "green"))
+                                  message.member.removeRole(message.guild.roles.find("name", "purple"))
                                   
                             
                                  
