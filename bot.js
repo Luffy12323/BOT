@@ -1093,34 +1093,7 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
 
 
 
-client.on("message", message => {
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot) return;
 
-  if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
-    level: 0
-  };
-  let userData = points[message.author.id];
-  userData.points++;
-
-  let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
-  if (curLevel > userData.level) {
-    // اللفل الجديد
-    userData.level = curLevel;
-     message.reply(`**لقد وصلت الى المستوى ${curLevel}**`).then(m => m.delete(100000));
-  }
-
-  if (message.content.startsWith(prefix + "level")) {
-    // الفل
-      message.reply(` ** انت في المستوى ${userData.level}  مع ${userData.points} نقاط . ** `).then(m => m.delete(100000));
-
-  }
-  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
-  });
-// ملف تخزين اللفل والنقاط
-});
 
 
 
