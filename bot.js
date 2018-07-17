@@ -1935,7 +1935,7 @@ const Za7f = [
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
- .addField('R Bot' ,
+ .addField('DK Bot' ,
   `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[38ab] Send By: ' + message.author.username)
@@ -2089,76 +2089,95 @@ client.on("message", message => {
  if (message.content === "-help-public") {
     message.reply(`**
 	
-     اين ارسل [خاص/هنا]
-	 Where I Send [here/DM]
+    شيك على الخاص
+	 Check Your DM
 	 
-	 **`).then(() => {
-        message.channel.awaitMessages(msg => msg.content == 'هنا' || msg.content == "here", {
-            max: 1,
-            time: 30000,
-            errors: ['time']
-        })
-        message.channel.send('Done | تم');
+	 **`)
   const here = new Discord.RichEmbed() 
       .setColor("GOLD")
       .setDescription(`
-  📌 Public Commands | أوامر عامة 📌
-📍-quran = فتح المصحف | Open Quran
-📍-bot = معلومات عن البوت | Bot Stats
-📍-mb = معرفة حالة الاعضاء | Members Stats
-📍-allbots = معرفة عدد البوتات | Number Of Bots
-📍-tr = الترجمة | Translate
-📍-say = كتابة في امبيد | Write In Embad
-📍-ping = سرعة اتصال البوت | Bot Ping
-📍-color = اختيار لون | Select Color
-📍-inv = لاضافة البوت لسيرفرك | Invite The Bot To Your Server
-📍-mcskin = سكنات ماينكرافت | Minecraft Skins
-📍-id = الايدي | Your ID
-📍-perms = لرؤية صلاحياتك | Your Permissions
-📍-rooms = لرؤية كل الرومات | See All Rooms
-📍-server = معلومات عن السيرفر | Server Info
-📍-count = معرفة عدد اعضاء السيرفر | MemBers Count
-📍-sug = للاقتراح | Suggestion
-📍-avatar = افاتار حقك | Your AvaTar
-📍-tag = كلام بس بشكل حلو  | Write Words But BeTTer
-
-`)
- message.channel.sendEmbed(here)
-})
-       message.channel.awaitMessages(msg => msg.content == 'خاص' || msg.content == "DM", {
-            max: 1,
-            time: 30000,
-            errors: ['time']
-        })
-        message.channel.send('Done | تم');
-  const here = new Discord.RichEmbed() 
-      .setColor("GOLD")
-      .setDescription(`
-  📌 Public Commands | أوامر عامة 📌
-📍-quran = فتح المصحف | Open Quran
-📍-bot = معلومات عن البوت | Bot Stats
-📍-mb = معرفة حالة الاعضاء | Members Stats
-📍-allbots = معرفة عدد البوتات | Number Of Bots
-📍-tr = الترجمة | Translate
-📍-say = كتابة في امبيد | Write In Embad
-📍-ping = سرعة اتصال البوت | Bot Ping
-📍-color = اختيار لون | Select Color
-📍-inv = لاضافة البوت لسيرفرك | Invite The Bot To Your Server
-📍-mcskin = سكنات ماينكرافت | Minecraft Skins
-📍-id = الايدي | Your ID
-📍-perms = لرؤية صلاحياتك | Your Permissions
-📍-rooms = لرؤية كل الرومات | See All Rooms
-📍-server = معلومات عن السيرفر | Server Info
-📍-count = معرفة عدد اعضاء السيرفر | MemBers Count
-📍-sug = للاقتراح | Suggestion
-📍-avatar = افاتار حقك | Your AvaTar
-📍-tag = كلام بس بشكل حلو  | Write Words But BeTTer
+**  📌 Public Commands | أوامر عامة 📌**
+📍**-quran** = فتح المصحف | Open Quran
+📍**-bot** = معلومات عن البوت | Bot Stats
+📍**-mb** = معرفة حالة الاعضاء | Members Stats
+📍**-allbots** = معرفة عدد البوتات | Number Of BoTs
+📍**-tr** = الترجمة | Translate
+📍**-say** = كتابة في امبيد | Write In Embad
+📍**-ping** = سرعة اتصال البوت | Bot Ping
+📍**-color** = لاضافة البوت لسيرفرك | Invite The BoT
+📍**-mcskin** = سكنات ماينكرافت | Minecraft Skins
+📍**-id** = الايدي | Your ID
+📍**-perms** = لرؤية صلاحياتك | Your Permissions
+📍**-rooms** = لرؤية كل الرومات | See All Rooms
+📍**-server** = معلومات عن السيرفر | Server Info
+📍**-count **= معرفة عدد اعضاء السيرفر | MemBers Count
+📍**-sug **= للاقتراح | Suggestion
+📍**-avatar** = افاتار حقك | Your AvaTar
+📍**-tag** = كلام بس بشكل حلو  | Write Words But BeTTer
 
 `)
  message.author.sendEmbed(here)
 }
    }); 
 
+
+   client.on("message", message => {
+	var prefix = "-";
+ if (message.content === "-help-admin") {
+    message.reply(`**
+	
+    شيك على الخاص
+	 Check Your DM
+	 
+	 **`)
+  const here = new Discord.RichEmbed() 
+      .setColor("GOLD")
+      .setDescription(`
+ ** 📌 Admin Commands | أوامر إدارية 📌**
+📍**-mute** = لأعطاء شخص ميوت | Mute Member
+📍**-clear** = لمسح الشات | Clear ChaT
+📍**-bc** = برودكاست للجميع | BroDCasT All MemBers
+📍**-kick** = لطرد عضو | Kick MemBer
+📍**-ban** = لتبنيد عضو | Ban MemBer
+📍**-dc** = حدف الرومات | DeleTe Rooms
+📍**-dr** = حدف الرتب | DeleTe Ranks
+📍**-mutechannel** = لقفل الشات | Mute ChanneL
+📍**-unmutechannel** = لفتح الشات | UnMute ChanneL
+📍**-role** = لاعطاء رتبة | Give MemBer Role
+
+
+`)
+ message.author.sendEmbed(here)
+}
+   }); 
+   
+   
+
+      client.on("message", message => {
+	var prefix = "-";
+ if (message.content === "-help-games") {
+    message.reply(`**
+	
+    شيك على الخاص
+	 Check Your DM
+	 
+	 **`)
+  const here = new Discord.RichEmbed() 
+      .setColor("GOLD")
+      .setDescription(`
+ ** 📌 Games Commands | أوامر الألعاب 📌**
+📍**-marry**
+📍**-لو خيروك**
+📍**-minecraft**
+📍**-صراحة**
+📍**-عقاب**
+📍**-خواطر**
+📍**-حب**
+📍**-مريم**
+`)
+ message.author.sendEmbed(here)
+}
+   }); 
 
 
 
