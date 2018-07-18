@@ -47,7 +47,7 @@ client.on('ready', () => {
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = [`Drean Is 100 Server '${client.guilds.size} | 100'`,`Drean Is 10,000 User '${client.users.size} | 10,000'`,`Thanks For +1000 User`,`use -help | -inv`,`Thanks For +50 Server`];
+    var setGame = [`I_Love_You_All`,`use -help | -inv`,`Thanks For +50 Server`];
     var i = -1;
     var j = 0;
     setInterval(function (){
