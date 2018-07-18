@@ -1106,7 +1106,7 @@ client.on('message', message => {
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
-     const w = ['./ID1.png'];
+     const w = ['./ID1.png', './ID2.png', './ID3.png', './ID4.png', './ID5.png', './ID6.png', './ID7.png', './ID8.png', './ID9.png', './ID10.png', './ID11.png', './ID12.png', './ID13.png',];
     
              let Image = Canvas.Image,
                  canvas = new Canvas(802, 404),
