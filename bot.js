@@ -1080,7 +1080,7 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["459397282169618462"];
 if (message.content.startsWith(prefix + 'ownerbot')) {
-if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**   جا صاحب البوت هنا الكل يوقف**` + `✅`)
+if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**  انت صاحب البوت **` + `✅`)
 } else {
    message.reply('**انت لست صاحب البوت**' + '❌');   
 }
