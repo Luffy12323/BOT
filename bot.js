@@ -1172,7 +1172,7 @@ client.on('message', message => {
                                                                              ctx.fillText(`${getvalueof.username}`,655, 170);
                                                                             
                                                                         
-                                                          moment.locale('ar-ly');        
+                                                          moment.locale('en-us');        
                                             
                                             
                                                                     ctx.font = '30px Arial';
@@ -1188,13 +1188,13 @@ client.on('message', message => {
                             
                                                        let status;
      if (getvalueof.presence.status === 'online') {
-         status = 'اون لاين';
+         status = 'online';
      } else if (getvalueof.presence.status === 'dnd') {
-         status = 'مشغول';
+         status = 'dnd';
      } else if (getvalueof.presence.status === 'idle') {
-         status = 'خارج النطاق';
+         status = 'idle';
      } else if (getvalueof.presence.status === 'offline') {
-         status = 'اوف لاين';
+         status = 'offline';
      }
      
      
@@ -1206,7 +1206,7 @@ client.on('message', message => {
                                                                    ctx.font = 'regular 30px Cairo';
                                                                    ctx.fontSize = '30px';
                                                                    ctx.fillStyle = '#ffffff'
-                                                         ctx.fillText(`${h.presence.game === null ? "لا يلعب" : h.presence.game.name}`,390,390);
+                                                         ctx.fillText(`${h.presence.game === null ? "Don't Play" : h.presence.game.name}`,390,390);
                             
                                ctx.font = '35px Arial';
                                                                    ctx.fontSize = '30px';
