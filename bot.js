@@ -75,7 +75,8 @@ client.on('ready', function(){
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+
+	  if(!message.member.hasPermission('MANAGE_ROLES')) return   message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))   
       message.guild.createRole({
                   name: "1",
                     color: "#cf1111",
@@ -86,7 +87,7 @@ client.on('message', message => {
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "2",
                     color: "#df5d11",
@@ -97,7 +98,7 @@ client.on('message', message => {
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "3",
                     color: "#dfab11",
@@ -108,7 +109,7 @@ client.on('message', message => {
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "4",
                     color: "#dfde11",
@@ -118,7 +119,7 @@ client.on('message', message => {
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "5",
                     color: "#a8df11",
@@ -129,7 +130,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "6",
                     color: "#64c40c",
@@ -139,7 +140,7 @@ client.on('message', message => {
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "7",
                     color: "#38c30c",
@@ -149,7 +150,7 @@ client.on('message', message => {
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "8",
                     color: "#0cc33f",
@@ -159,7 +160,7 @@ client.on('message', message => {
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "9",
                     color: "#0cc36c",
@@ -169,7 +170,7 @@ client.on('message', message => {
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "10",
                     color: "#0cc394",
@@ -180,7 +181,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "11",
                     color: "#0cc3ad",
@@ -191,7 +192,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "12",
                     color: "#0cb1c3",
@@ -202,7 +203,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "13",
                     color: "#0c9ec3",
@@ -213,7 +214,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "14",
                     color: "#0c8ac3",
@@ -224,7 +225,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "15",
                     color: "#0c6cc3",
@@ -235,7 +236,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "16",
                     color: "#0c49c3",
@@ -246,7 +247,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "17",
                     color: "#0c2bc3",
@@ -257,7 +258,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "18",
                     color: "#150cc3",
@@ -269,7 +270,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "19",
                     color: "#880cc3",
@@ -281,7 +282,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "20",
                     color: "#b50cc3",
@@ -293,7 +294,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "21",
                     color: "#c30cb8",
@@ -305,7 +306,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "22",
                     color: "#c30c90",
@@ -317,7 +318,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "23",
                     color: "#c30c63",
@@ -329,7 +330,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "24",
                     color: "#c30c4a",
@@ -341,7 +342,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "25",
                     color: "#c30c31",
@@ -353,7 +354,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "26",
                     color: "#ff0000",
@@ -365,7 +366,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "27",
                     color: "#ff4200",
@@ -377,7 +378,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "28",
                     color: "#ff6c00",
@@ -389,7 +390,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "29",
                     color: "#ff8f00",
@@ -401,7 +402,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "30",
                     color: "#ffd400",
@@ -412,7 +413,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "31",
                     color: "#e4ff00",
@@ -423,7 +424,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "32",
                     color: "#adff00",
@@ -434,7 +435,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "33",
                     color: "#60ff00",
@@ -445,7 +446,7 @@ client.on('message', message => {
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "34",
                     color: "#14ff00",
@@ -456,7 +457,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "35",
                     color: "#00ff40",
@@ -467,7 +468,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "36",
                     color: "#00ff8c",
@@ -478,7 +479,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "37",
                     color: "#00ffc4",
@@ -489,7 +490,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "38",
                     color: "#00e7ff",
@@ -500,7 +501,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "39",
                     color: "#009aff",
@@ -512,7 +513,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "40",
                     color: "#0055ff",
@@ -523,7 +524,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "41",
                     color: "#0001ff",
@@ -534,7 +535,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "42",
                     color: "#6700ff",
@@ -545,7 +546,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "43",
                     color: "#ad00ff",
@@ -556,7 +557,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "44",
                     color: "#dd00ff",
@@ -567,7 +568,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "45",
                     color: "#ff00fe",
@@ -578,7 +579,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "46",
                     color: "#ff00cd",
@@ -589,7 +590,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "47",
                     color: "#ff0096",
@@ -600,7 +601,7 @@ client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "48",
                     color: "#ff0057",
@@ -611,7 +612,7 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "49",
                     color: "#ff002d",
@@ -623,12 +624,13 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return    message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
       message.guild.createRole({
                   name: "50",
                     color: "#050505",
                     permissions: []
      })
+				
 				
 	           message.channel.sendMessage({embed: new Discord.RichEmbed()
      .setColor('GREEN').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``جاري العمل على الالوان |✅``')
@@ -649,7 +651,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
-		if(!message.member.hasPermission('MANAGE_ROLES')) return
+		if(!message.member.hasPermission('MANAGE_ROLES')) return  message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
 		let role = message.guild.roles.find('name', '1');
 		
 		role.delete()
