@@ -65,6 +65,13 @@ client.on('ready', function(){
 
 
 
+ 
+
+
+
+
+
+
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
@@ -1261,7 +1268,8 @@ var x19 = "-color 19"
 var x20 = "-color 20"
 var x21 = "-color 21"
 var x22 = "-color 22"
-var x23 = "-color 24"
+var x23 = "-color 23"
+var x24 = "-color 24"
 var x25 = "-color 25"
 var x26 = "-color 26"
 var x27 = "-color 27"
@@ -1273,11 +1281,16 @@ var x32 = "-color 32"
 var x33 = "-color 33"
 var x34 = "-color 34"
 var x35 = "-color 35"
-var x36 = "-color 37"
+var x36 = "-color 36"
+var x37 = "-color 37"
 var x38 = "-color 38"
+var x39 = "-color 39"
 var x40 = "-color 40"
 var x41 = "-color 41"
-var x42 = "-color 45"
+var x42 = "-color 42"
+var x43 = "-color 43"
+var x44 = "-color 44"
+var x45 = "-color 45"
 var x46 = "-color 46"
 var x47 = "-color 47"
 var x48 = "-color 48"
@@ -6831,8 +6844,8 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
   }
 	
 });
-   
- 
+
+
 
 
 
