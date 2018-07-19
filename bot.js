@@ -64,7 +64,7 @@ client.on('ready', function(){
 });
 
 
-var prefix = "-";
+
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
