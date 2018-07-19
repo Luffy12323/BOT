@@ -6840,7 +6840,7 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
   if (message.content === '-colorslist') {
       if (!message.channel.guild) return;
-    message.channel.send('./colors.png');
+    message.channel.sendFile('./colors.png');
   }
 	
 });
