@@ -69,6 +69,8 @@ client.on('message',function(message) {
    if(message.content.startsWith("-colorslist")) {
       if (!message.channel.guild) return;
     message.channel.sendFile('./colors.png');
+   }
+});
   
    
  
