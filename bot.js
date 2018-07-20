@@ -1241,6 +1241,8 @@ client.on('message', message => {
 		let role = message.guild.roles.find('name', '50');
 		
 		role.delete()
+	}
+		
 		
 			message.channel.sendMessage({embed: new Discord.RichEmbed()
      .setColor('RED').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``جاري حذف على الالوان |✅``')});
