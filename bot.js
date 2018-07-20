@@ -1242,11 +1242,11 @@ client.on('message', message => {
 		
 		role.delete()
 	}
-		});
+		
 		
 			message.channel.sendMessage({embed: new Discord.RichEmbed()
      .setColor('RED').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``جاري حذف على الالوان |✅``')});
-	}
+	
 	});
 	
 	
