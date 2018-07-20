@@ -60,7 +60,7 @@ Servers | السيرفرات : ${client.guilds.size} 🌍
 Users | المستخدمين : ${client.users.size} 👥
 Bot Prefix | بريفكس البوت : [-]
 Help Command | امر المساعدة : -help
-Owner Bot | صاحب البوت : <@459397282169618462>
+Owner Bot | صاحب البوت : 👑Osama_DK👑#1333 & 👑Osama_DK👑#0876
 
 لآضافة البوت من هاذا الرابط | You Can Invite Bot From This Link
 **
@@ -8806,6 +8806,9 @@ client.on("message", message => {
 			 
 **[ -help-games 🎮 أوامر الاألعاب ]**
 
+**[ -help-music 🔊 أوامر الموسيقى ]**
+
+**[ -help-owner 🔒 أوامر صاحب البوت ]**
 	  `)
    message.channel.sendEmbed(embed)
     
@@ -8820,10 +8823,10 @@ client.on("message", message => {
 	
     شيك على الخاص
 	 Check Your DM
-	 
 	 **`)
   const here = new Discord.RichEmbed() 
       .setColor("GOLD")
+      .setFooter('DK BOT' , client.user.avatarURL)
       .setDescription(`
 **  📌 Public Commands | أوامر عامة 📌**
 📍**-quran** = فتح المصحف | Open Quran
@@ -8857,10 +8860,10 @@ client.on("message", message => {
 	
     شيك على الخاص
 	 Check Your DM
-	 
 	 **`)
   const here = new Discord.RichEmbed() 
       .setColor("GOLD")
+      .setFooter('DK BOT' , client.user.avatarURL)
       .setDescription(`
  ** 📌 Admin Commands | أوامر إدارية 📌**
 📍**-mute** = لأعطاء شخص ميوت | Mute Member
@@ -8889,10 +8892,10 @@ client.on("message", message => {
 	
     شيك على الخاص
 	 Check Your DM
-	 
 	 **`)
   const here = new Discord.RichEmbed() 
       .setColor("GOLD")
+      .setFooter('DK BOT' , client.user.avatarURL)
       .setDescription(`
  ** 📌 Games Commands | أوامر الألعاب 📌**
 📍**-marry**
@@ -8907,6 +8910,37 @@ client.on("message", message => {
  message.author.sendEmbed(here)
 }
    }); 
+
+
+
+      client.on("message", message => {
+	var prefix = "-";
+ if (message.content === "-help-music") {
+    message.reply(`**
+	
+    شيك على الخاص
+	 Check Your DM
+	 **`)
+  const here = new Discord.RichEmbed() 
+      .setColor("GOLD")
+	  .setFooter('DK BOT' , client.user.avatarURL)
+      .setDescription(`
+ ** 📌 Music Commands | أوامر الموسيقى 📌**
+📍**-play** = لتشغيل اغنية برابط | Play Music With Link
+📍**-skip** = لتجاوز الاغنية | Skip Music
+📍**-pause** = للايقاف المؤقت | Pause Music
+📍**-resume** = لتشغيل الاغنية المتوقفة موقتا | Resume Music
+📍**-vol** = لتغيير درجة الصوت | Change Sound Level
+📍**-stop** = لاخراج البوت من الروم | Exit Bot From The Room
+📍**-np** = لمعرفة الاغنية المشغلة | Now Playing ..!
+📍**-queue** = لمعرفة قائمة التشغيل | PlayList Menu
+`)
+ message.author.sendEmbed(here)
+}
+   }); 
+
+
+
 
 
 
