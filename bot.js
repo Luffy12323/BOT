@@ -7126,7 +7126,7 @@ let welcomer = member.guild.channels.find("name","welcome");
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
-                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
+                                    ctx.fillText(`You Are Num ${member.guild.memberCount} `
                               , 200, 190);
 
  welcomer.sendFile(canvas.toBuffer())
@@ -8808,6 +8808,8 @@ client.on("message", message => {
 
 **[ -help-music 🔊 أوامر الموسيقى ]**
 
+**[ -help-info ✨ أوامر معلومات ]**
+
 **[ -help-owner 🔒 أوامر صاحب البوت ]**
 	  `)
    message.channel.sendEmbed(embed)
@@ -8970,6 +8972,58 @@ client.on("message", message => {
 }
    }); 
 
+
+
+
+      client.on("message", message => {
+	var prefix = "-";
+ if (message.content === "-help-info") {
+    message.reply(`**
+	
+    شيك على الخاص
+	 Check Your DM
+	 **`)
+  const here = new Discord.RichEmbed() 
+      .setColor("GOLD")
+	  .setFooter('DK BOT' , client.user.avatarURL)
+      .setDescription(`
+ ** 📌 Info Commands | معلومات عامة 📌**
+📍 **باللغة العربية :**
+
+انشئ روم بأسم **welcome**
+ليرحب البوت بكل واحد يدخل السيرفر
+
+انشئ روم بأسم **left**
+ليودع البوت كل واحد يغادر السيرفر
+
+انشئ روم بأسم **picture**
+سيكون الروم تلقائيا مخصص للصور فقط
+
+انشئ روم بأسم **suggestions**
+سيكون الروم مخصص للاقتراحات 
+لحتى يتمكنوا الاعضاء من الاقتراح
+يجب استخدام هذا الامر **-sug**
+
+
+📍 **English Language :**
+
+Create a **welcome ** Room
+To welcome the bot every one enters the server
+
+Create a **left** Room
+To put out the bot each one leaves the server
+
+Create a **picture** Room
+The room will automatically be for photos only
+
+Create a **suggestions** Room
+The room will be for suggestions
+Even members can Suggest
+Members must use this command **-sug**
+`)
+ message.author.sendEmbed(here)
+}
+   }); 
 
 
 client.login(process.env.BOT_TOKEN);
