@@ -8931,7 +8931,7 @@ client.on("message", message => {
 📍**-pause** = للايقاف المؤقت | Pause Music
 📍**-resume** = لتشغيل الاغنية المتوقفة موقتا | Resume Music
 📍**-vol** = لتغيير درجة الصوت | Change Sound Level
-📍**-stop** = لاخراج البوت من الروم | Exit Bot From The Room
+📍**-stop** = لاخراج البوت من الروم | Exit Bot From Room
 📍**-np** = لمعرفة الاغنية المشغلة | Now Playing ..!
 📍**-queue** = لمعرفة قائمة التشغيل | PlayList Menu
 `)
@@ -8940,7 +8940,35 @@ client.on("message", message => {
    }); 
 
 
-
+      client.on("message", message => {
+	var prefix = "-";
+ if (message.content === "-help-owner") {
+	  if (message.author.id !== '459397282169618462') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
+ if(!message.author.id === '459397282169618462') return;
+    message.reply(`**
+	
+    شيك على الخاص
+	 Check Your DM
+	 **`)
+  const here = new Discord.RichEmbed() 
+      .setColor("GOLD")
+	  .setFooter('DK BOT' , client.user.avatarURL)
+      .setDescription(`
+ ** 📌 Owner Commands | أوامر الأونر 📌**
+📍**->bcall**
+📍**-ownerbot**
+📍**-ipservers**
+📍**-nameservers**
+📍**-setplaying**
+📍**-setlistening**
+📍**-setwatching**
+📍**-setstreaming**
+📍**-setname**
+📍**-setavatar**
+`)
+ message.author.sendEmbed(here)
+}
+   }); 
 
 
 
