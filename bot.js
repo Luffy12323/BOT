@@ -1245,7 +1245,7 @@ client.on('message', message => {
 			message.channel.sendMessage({embed: new Discord.RichEmbed()
      .setColor('RED').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``جاري حذف على الالوان |✅``')});
 	}
-	});
+	}سي
 	
 	
 var x1 = "-color 1"
