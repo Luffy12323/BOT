@@ -752,7 +752,7 @@ client.on('message', message => {
 	 .setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``I Creating Colors Just Wait | جاري العمل على الالوان``')
 	 });
 				
-	}});
+	
 
 
 
