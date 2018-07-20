@@ -86,6 +86,8 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
  
 
 
+ 
+
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
@@ -538,7 +540,8 @@ client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
-         if(!message.member.hasPermission('MANAGE_ROLES')) return              if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
+         if(!message.member.hasPermission('MANAGE_ROLES')) return      
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '35')) return		 
       message.guild.createRole({
                   name: "35",
@@ -736,7 +739,7 @@ client.on('message', message => {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
          if(!message.member.hasPermission('MANAGE_ROLES')) return  message.channel.send(`**:x: | ${message.author.username}  You Must Have The \`MANAGE_ROLES\` permission to create colors roles !**`)
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to create colors roles !**`)
-         if(message.guild.roles.find('name', '50')) return  message.channel.send('**I did not find colors roles | لم اجد رتب الالوان**');		 
+         if(message.guild.roles.find('name', '50')) return  message.channel.send('**لا يمكن انشاء رتب الالوان مرتين | Colors roles can not be created twice **');		 
       message.guild.createRole({
                   name: "50",
                     color: "#050505",
@@ -750,6 +753,7 @@ client.on('message', message => {
 	 });
 				
 	}});
+
 
 
 
