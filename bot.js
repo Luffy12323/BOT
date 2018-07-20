@@ -745,7 +745,7 @@ client.on('message', message => {
                     color: "#050505",
                     permissions: []
      })
-	}});				
+		
 				
 	           message.channel.sendMessage({embed: new Discord.RichEmbed()
      .setColor('GREEN')
@@ -753,7 +753,7 @@ client.on('message', message => {
 	 });
 				
 	
-
+	}});		
 
 
 
