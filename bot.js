@@ -8481,6 +8481,8 @@ client.on("message", message => {
     var msg = message.content.toLowerCase();
     if( !message.guild ) return;
     if( !msg.startsWith( prefix + 'role' ) ) return;
+	    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
+    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
     if( msg.toLowerCase().startsWith( prefix + 'rerole ;' ) ){
         if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
         if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
@@ -8491,6 +8493,8 @@ client.on("message", message => {
             return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
         }
         if( args[0].toLowerCase() == "all" ){
+			    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
+    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
             message.guild.members.forEach(m=>m.removeRole( role1 ))
             return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
         } else if( args[0].toLowerCase() == "bots" ){
@@ -8507,17 +8511,19 @@ client.on("message", message => {
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
         if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+            return message.reply('** بواسطة  [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
         }
         if( args[0].toLowerCase() == "all" ){
+			    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
+    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
             message.guild.members.forEach(m=>m.addRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء الكل رتبة**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
         }
     }
 });
