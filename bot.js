@@ -48,6 +48,48 @@ client.on('ready', () => {
 });
 
 
+
+
+
+client.on("message", function(message) {
+let messageArray = message.content.split(" ");
+let command = messageArray[0];
+let anarg = message.content.split(' ').slice(1).join(' ')
+let toSend = message.mentions.users.first();
+        
+         var currentTime = new Date(),
+          hours = currentTime.getHours() + 2 ,
+          minutes = currentTime.getMinutes(),
+          seconds = currentTime.getSeconds(),
+          Year = currentTime.getFullYear() - 2000,
+          Month = currentTime.getMonth() + 1,
+          Day = currentTime.getDate();
+          var suffix = 'AM';
+          if (hours >= 12) {
+             suffix = 'PM';
+              hours = hours - 12;
+         }
+          if (hours == 0) {
+              hours = 12;
+          }
+let xFive = new Discord.RichEmbed()
+    .setColor("ORANGE")
+    .addField("**•DM Messages**","**"+anarg+"**")
+if(command === `-DM`) {
+    if(toSend.bot) return message.reply("**I Can't 🎇**");
+    if(anarg < 1) return message.reply("**-_-** ");
+    //if(toSend === message.author) return message.reply("**# You cannot send a message to yourself**");
+    toSend.send({embed:xFive});
+    message.channel.send(" ✅ ")
+ }
+});
+
+
+
+
+
+
+
 client.on('message', async msg => {
 	if (msg.author.bot) return undefined;
 	
