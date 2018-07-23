@@ -8037,13 +8037,12 @@ message.react("??")
 
 
 client.on('message', message => {
-       if (message.content.startsWith(prefix + '--nameservers')) {
+       if (message.content.startsWith(prefix + '-nameservers')) {
+ if (message.author.id !== '459397282169618462') return message.reply('** This Command Only For Bot Owner | هاد الامر لصاحب البوت وشكرا **')
+ if(!message.author.id === '459397282169618462') return;
+           if(!message.channel.guild) return 
      let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
-  let embed = new Discord.RichEmbed()
-  .setTitle(`${client.guilds.size}سيرفرات `)
-  .setDescription(`${msg}`)
-  .setColor("#ebf442");
-  message.channel.send(embed);
+  message.channel.send(`${msg}`);
 }
 });
 
