@@ -350,7 +350,6 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
  
 
 
- 
 
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
@@ -1674,7 +1673,7 @@ client.on('message', message => {
 		role.delete()
 		
 			message.channel.sendMessage({embed: new Discord.RichEmbed()
-     .setColor('RED').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``جاري حذف على الالوان |✅``')});
+          .setColor('RED').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``I Deleting Colors Just Wait | جـاري حدف رتـب الالـوان``')});
 	}
 	});
 
@@ -1733,14 +1732,13 @@ var x49 = "-color 49"
 var x50 = "-color 50"
 
 
-client.on('message', message => {
+client.on('message', 
+message => {
 	if (message.content === x1) {
 	    if(!message.channel.guild) return;
-		if(message.guild.roles.find('name', '1')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '1');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.addRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -1850,11 +1848,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 
 if (message.content === x2) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '2')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '2');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 	message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.addRole(message.guild.roles.find("name", "2"));
@@ -1966,11 +1962,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x3) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '3')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '3');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2082,11 +2076,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x4) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '4')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '4');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2198,11 +2190,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x5) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '5')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '5');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2314,11 +2304,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x6) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '6')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '6');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2430,11 +2418,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x7) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '7')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '7');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2546,11 +2532,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x8) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '8')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '8');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2662,11 +2646,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x9) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '9')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '9');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2778,11 +2760,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
 if (message.content === x10) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '10')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '10');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -2896,11 +2876,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x11) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '11')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '11');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3013,11 +2991,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x12) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '12')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '12');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3130,11 +3106,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x13) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '13')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '13');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3247,11 +3221,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x14) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '14')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '14');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3364,11 +3336,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x15) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '15')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '15');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3481,11 +3451,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x16) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '16')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '16');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3598,11 +3566,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x17) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '17')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '17');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3715,11 +3681,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x18) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '18')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '18');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3832,11 +3796,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 		if (message.content === x19) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '19')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '19');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -3949,11 +3911,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x20) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '20')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '20');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4066,11 +4026,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x21) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '21')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '21');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4183,11 +4141,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x22) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '22')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '22');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4300,11 +4256,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x23) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '23')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '23');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4417,11 +4372,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x24) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '24')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '24');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4534,11 +4487,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x25) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '25')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '25');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4651,11 +4602,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x26) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '26')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '26');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4768,11 +4717,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x27) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '27')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '27');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -4885,11 +4832,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x28) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '28')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '28');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5002,11 +4947,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x29) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '29')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '29');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5119,11 +5062,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x30) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '30')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '30');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5236,11 +5177,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x31) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '31')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '31');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5353,11 +5293,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x32) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '32')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '32');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5470,11 +5409,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x33) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '33')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '33');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5587,11 +5525,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x34) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '34')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '34');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5704,11 +5641,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x35) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '35')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '35');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5821,11 +5757,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x36) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '36')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '36');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -5938,11 +5873,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x37) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '37')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '37');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6055,11 +5989,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x38) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '38')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '38');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6172,11 +6105,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x39) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '39')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '39');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6289,11 +6221,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x40) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '40')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '40');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6406,11 +6337,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x41) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '41')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '41');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6523,11 +6452,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x42) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '42')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '42');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6640,11 +6567,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x43) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '43')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '43');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6757,11 +6682,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x44) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '44')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '44');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6874,11 +6797,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x45) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '45')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '45');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -6991,11 +6912,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x46) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '46')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '46');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -7109,10 +7028,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	if (message.content === x47) {
     if(!message.channel.guild) return;
 	if(message.guild.roles.find('name', '47')) return 
-	const embed = new Discord.RichEmbed()
+	const embedd = new Discord.RichEmbed()
  	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+  message.channel.sendEmbed(embedd);
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -7225,11 +7144,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x48) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '48')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '48');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -7342,11 +7259,9 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x49) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '49')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '49');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
@@ -7459,11 +7374,10 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	
 	if (message.content === x50) {
     if(!message.channel.guild) return;
-	if(message.guild.roles.find('name', '50')) return 
-	const embed = new Discord.RichEmbed()
- 	.setFooter('Requested by '+message.author.username, message.author.avatarURL)
-   .setDescription(`This color does not exist| هذا اللون غير موجود`)
-  message.channel.sendEmbed(embed);
+		let rank = message.guild.roles.find('name', '50');
+    if (!rank) return  message.channel.send('**This Color Does Not Exist | هذا اللون غير موجود**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give you color**`)
+  
   
 		message.member.removeRole(message.guild.roles.find("name", "1"));
     message.member.removeRole(message.guild.roles.find("name", "2"));
