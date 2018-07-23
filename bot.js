@@ -1733,6 +1733,7 @@ var x49 = "-color 49"
 var x50 = "-color 50"
 
 
+
 client.on('message', message => {
 	if (message.content === x1) {
 	    if(!message.channel.guild) return;
@@ -7279,7 +7280,6 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
   }
 	
 });
-
 
 
 
