@@ -9486,4 +9486,29 @@ Members must use this command **-sug**
    }); 
 
 
+
+   
+   client.on('message', message => {
+    if (message.content.startsWith("-afk")) {
+if(!message.channel.guild) return 
+if(!message.guild.member(client.user).hasPermission("CHANGE_NICKNAME")) return message.replay("i Don't Have Permission ``CHANGE_NICKNAME`` :x: ")
+    if(!message.guild.owner) return message.reply("You Are Server Owner");
+   message.member.setNickname('[AFK]-'+message.author.username)
+      message.reply("**You Are Now AFK... **")
+   
+    }});
+    
+       client.on('message', message => {
+    if (message.content.startsWith("-back")) {
+if(!message.channel.guild) return 
+if(!message.guild.member(client.user).hasPermission("CHANGE_NICKNAME")) return message.replay("i Don't Have Permission ``CHANGE_NICKNAME`` :x: ")
+   if(!message.guild.owner) return message.reply("You Are Server Owner");
+   message.member.setNickname('')
+   message.reply("**You Longer AFK... Welcome Back**")
+   
+    }});
+
+
+
+
 client.login(process.env.BOT_TOKEN);
