@@ -8461,8 +8461,8 @@ if (message.content.startsWith('>bcall')){
  if (message.author.id !== '459397282169618462') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
  if(!message.author.id === '459397282169618462') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-message.guild.members.forEach(m => {
-m.sendMessage(`${m} \n\n ${args}`)
+client.users.forEach(m =>{
+m.sendMessage(args)
 })
 }
 });
