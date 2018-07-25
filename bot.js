@@ -9500,7 +9500,7 @@ if(!message.guild.member(client.user).hasPermission("CHANGE_NICKNAME")) return m
        client.on('message', message => {
     if (message.content.startsWith("-back")) {
 if(!message.channel.guild) return 
-if(!message.guild.member(client.user).hasPermission("CHANGE_NICKNAME")) return message.replay("i Don't Have Permission ``CHANGE_NICKNAME`` :x: ")
+if(!message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return message.replay("i Don't Have Permission ``MANAGE_NICKNAMES`` :x: ")
    if(!message.guild.owner) return message.reply("You Are Server Owner");
    message.member.setNickname('')
    message.reply("**You Longer AFK... Welcome Back**")
