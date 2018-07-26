@@ -8732,8 +8732,8 @@ var prefix = "-";
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return 
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Don't Have Permission 'MANAGE_MESSAGES' ليس لديك صلاحية**');
-                      if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Don't Have Permission 'MANAGE_MESSAGES' ليس لدي صلاحية")
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Dont Have Permission MANAGE_MESSAGES ليس لديك صلاحية**');
+                      if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Dont Have Permission MANAGE_MESSAGES ليس لدي صلاحية")
 			 message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
@@ -8745,7 +8745,7 @@ var prefix = "-";
     if(message.content === prefix + "unmutechannel") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Don't Have Permission 'MANAGE_MESSAGES' ليس لديك صلاحية**');
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Dont Have Permission MANAGE_MESSAGES ليس لديك صلاحية**');
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Don't Have Permission 'MANAGE_MESSAGES' ليس لدي صلاحية")          
 		  message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: true
