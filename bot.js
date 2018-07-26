@@ -10,14 +10,6 @@ const cooldown = new Set();
 var moment = require('moment')
 var Canvas = require('canvas');
 var jimp = require('jimp');
-var gEnteredUsers = [];
-var gDeclareArray = [];
-var gTime;
-var gPrize;
-var msgID;
-var fetchedMsg;
-var fUserId;
-var Active_Giveaway = "false";
 const dateFormat = require('dateformat');
 var entryCount = 0;
 const ytdl = require("ytdl-core");
@@ -147,8 +139,6 @@ client.on("message", function(message) {
 let messageArray = message.content.split(" ");
 let command = messageArray[0];
 let anarg = message.content.split(' ').slice(1).join(' ')
-let toSend = message.mentions.users.first();
-        
          var currentTime = new Date(),
           hours = currentTime.getHours() + 2 ,
           minutes = currentTime.getMinutes(),
@@ -164,15 +154,17 @@ let toSend = message.mentions.users.first();
           if (hours == 0) {
               hours = 12;
           }
-let xFive = new Discord.RichEmbed()
+let DM = new Discord.RichEmbed()
     .setColor("ORANGE")
     .addField("**•DM Messages**","**"+anarg+"**")
 if(command === `-DM`) {
-    if(toSend.bot) return message.reply("**I Can't 🎇**");
+    if(!message.channel.guild) return
+    let toSend = message.mentions.users.first();
+if(!toSend) return message.reply("** :x: |Sorry i Can't Find This Person | اسف لم اجد شخص بهاد الاسم| :x:** ")
+    if(toSend.bot) return message.reply("**:x: |I Can't Send Message To Bot | لا أستطيع ارسال رسالة لبوت| :x:**");
     if(anarg < 1) return message.reply("**-_-** ");
-    //if(toSend === message.author) return message.reply("**# You cannot send a message to yourself**");
-    toSend.send({embed:xFive});
-    message.channel.send(" ✅ ")
+    toSend.send({embed:DM});
+    message.reply("**Done |✅| تم**")
  }
 });
 
@@ -409,30 +401,30 @@ client.on('message', message => {
       
   if (message.content.startsWith(adminprefix + 'setplaying')) {
     client.user.setGame(argresult);
-      message.channel.send(`Done You Have Been Changed The Playing To ${argresult}**✅ `)
+      message.channel.send(`**Done You Have Been Changed The Playing To ${argresult}**✅ `)
   } else 
      if (message.content === (adminprefix + "dkbotleave")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'setwatching')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`Done You Have Been Changed The Watching To **${argresult}**✅`)
+      message.channel.send(`**Done You Have Been Changed The Watching To ${argresult}**✅`)
   } else 
   if (message.content.startsWith(adminprefix + 'setlistening')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`Done You Have Been Changed The Listening To  **${argresult}**✅`)
+      message.channel.send(`**Done You Have Been Changed The Listening To ${argresult}**✅`)
   } else 
   if (message.content.startsWith(adminprefix + 'setstreaming')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.send(`Done You Have Been Changed The Streaming To **${argresult}**✅`)
+      message.channel.send(`**Done You Have Been Changed The Streaming To ${argresult}**✅`)
   }
   if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** ✅`)
+      message.channel.send(`**Changing The Name To ..${argresult}** ✅`)
 } else
 if (message.content.startsWith(adminprefix + 'setavatar')) {
   client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** ✅`);
+    message.channel.send(`**Changing The Avatar To :${argresult}** ✅`);
 }
 
 
@@ -445,7 +437,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 client.on('message', message => {
     if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return
 	     if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '1')) return
@@ -458,7 +450,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '2')) return		 
@@ -471,7 +463,7 @@ client.on('message', message => {
 });
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '3')) return		 
@@ -484,7 +476,7 @@ client.on('message', message => {
 });
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '4')) return		 
@@ -496,7 +488,7 @@ client.on('message', message => {
 	}});	
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return     
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '5')) return		 
@@ -509,7 +501,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '6')) return
@@ -521,7 +513,7 @@ client.on('message', message => {
 	}});	
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return     
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '7')) return		 
@@ -533,7 +525,7 @@ client.on('message', message => {
 	}});	
 	client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '8')) return		 
@@ -545,7 +537,7 @@ client.on('message', message => {
 	}});	
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '9')) return
@@ -557,7 +549,7 @@ client.on('message', message => {
 }});	
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '10')) return		 
@@ -570,7 +562,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '11')) return		 
@@ -583,7 +575,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '12')) return		 
@@ -596,7 +588,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '13')) return
@@ -609,7 +601,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '14')) return
@@ -622,7 +614,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '15')) return
@@ -635,7 +627,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '16')) return		 
@@ -648,7 +640,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '17')) return		 
@@ -661,7 +653,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '18')) return		 
@@ -675,7 +667,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return 
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '19')) return		 
@@ -689,7 +681,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '20')) return
@@ -703,7 +695,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '21')) return		 
@@ -717,7 +709,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '22')) return		 
@@ -731,7 +723,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '23')) return		 
@@ -745,7 +737,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '24')) return		 
@@ -759,7 +751,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '25')) return		 
@@ -773,7 +765,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return 
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '26')) return		 
@@ -787,7 +779,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '27')) return		 
@@ -801,7 +793,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '28')) return		 
@@ -815,7 +807,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return     
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '29')) return		 
@@ -829,7 +821,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return    
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '30')) return		 
@@ -842,7 +834,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '31')) return		 
@@ -855,7 +847,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return    
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '32')) return		 
@@ -868,7 +860,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '33')) return		 
@@ -881,7 +873,7 @@ client.on('message', message => {
 	
 client.on('message', message => {
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '34')) return		 
@@ -894,7 +886,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return      
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '35')) return		 
@@ -907,7 +899,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '36')) return		 
@@ -920,7 +912,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return
 		          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '37')) return
@@ -933,7 +925,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '38')) return		 
@@ -946,7 +938,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return 
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '39')) return		 
@@ -960,7 +952,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '40')) return		 
@@ -973,7 +965,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return     
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '41')) return		 
@@ -986,7 +978,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return    
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '42')) return		 
@@ -999,7 +991,7 @@ client.on('message', message => {
 client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '43')) return		 
@@ -1012,7 +1004,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '44')) return		 
@@ -1025,7 +1017,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '45')) return		 
@@ -1038,7 +1030,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return   
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '46')) return		 
@@ -1051,7 +1043,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '47')) return		 
@@ -1064,7 +1056,7 @@ client.on('message', message => {
 client.on('message', message => {
 	
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return 
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '48')) return		 
@@ -1077,7 +1069,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return 
          if(message.guild.roles.find('name', '49')) return		 
@@ -1091,7 +1083,7 @@ client.on('message', message => {
 	client.on('message', message => {
 
 	    if(message.content === prefix + 'create-colors') {
-                         if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
+                         if(!message.channel.guild) return   
          if(!message.member.hasPermission('MANAGE_ROLES')) return  message.channel.send(`**:x: | ${message.author.username}  You Must Have The \`MANAGE_ROLES\` permission to create colors roles !**`)
          if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to create colors roles !**`)
          if(message.guild.roles.find('name', '50')) return  message.channel.send('**لا يمكن انشاء رتب الالوان مرتين | Colors roles can not be created twice **');		 
@@ -1123,6 +1115,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return  message.channel.send('**You Dont Have** `MANAGE_ROLES` **premission**').then(msg => msg.delete(6000))
 		let role = message.guild.roles.find('name', '1');
 		let rank = message.guild.roles.find('name', '1');
@@ -1136,7 +1129,8 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
-		if(!message.member.hasPermission('MANAGE_ROLES')) return
+	if(!message.channel.guild) return
+		if(!message.member.hasPermission('MANAGE_ROLES')) return 
 		let role = message.guild.roles.find('name', '2');
 		let rank = message.guild.roles.find('name', '2');
     if (!rank) return  
@@ -1149,6 +1143,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '3');
 		let rank = message.guild.roles.find('name', '3');
@@ -1161,6 +1156,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '4');
 		let rank = message.guild.roles.find('name', '4');
@@ -1174,6 +1170,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '5');
 		let rank = message.guild.roles.find('name', '5');
@@ -1187,6 +1184,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '6');
 		let rank = message.guild.roles.find('name', '6');
@@ -1200,6 +1198,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '7');
 		let rank = message.guild.roles.find('name', '7');
@@ -1213,6 +1212,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '8');
 		let rank = message.guild.roles.find('name', '8');
@@ -1226,6 +1226,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '9');
 		let rank = message.guild.roles.find('name', '9');
@@ -1239,6 +1240,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '10');
 		let rank = message.guild.roles.find('name', '10');
@@ -1252,6 +1254,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '11');
 		let rank = message.guild.roles.find('name', '11');
@@ -1265,6 +1268,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '12');
 		let rank = message.guild.roles.find('name', '12');
@@ -1278,6 +1282,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '13');
 		let rank = message.guild.roles.find('name', '13');
@@ -1291,6 +1296,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '14');
 		let rank = message.guild.roles.find('name', '14');
@@ -1304,6 +1310,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '15');
 		let rank = message.guild.roles.find('name', '15');
@@ -1317,6 +1324,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '16');
 		let rank = message.guild.roles.find('name', '16');
@@ -1330,6 +1338,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '17');
 		let rank = message.guild.roles.find('name', '17');
@@ -1343,6 +1352,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '18');
 		let rank = message.guild.roles.find('name', '18');
@@ -1356,6 +1366,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '19');
 		let rank = message.guild.roles.find('name', '19');
@@ -1369,6 +1380,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '20');
 		let rank = message.guild.roles.find('name', '20');
@@ -1381,6 +1393,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '21');
 		let rank = message.guild.roles.find('name', '21');
@@ -1394,6 +1407,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '22');
 		let rank = message.guild.roles.find('name', '22');
@@ -1407,6 +1421,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '23');
 		let rank = message.guild.roles.find('name', '23');
@@ -1420,6 +1435,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '24');
 		let rank = message.guild.roles.find('name', '24');
@@ -1433,6 +1449,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '25');
 		let rank = message.guild.roles.find('name', '25');
@@ -1446,6 +1463,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '26');
 		let rank = message.guild.roles.find('name', '26');
@@ -1459,6 +1477,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '27');
 		let rank = message.guild.roles.find('name', '27');
@@ -1472,6 +1491,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '28');
 		let rank = message.guild.roles.find('name', '28');
@@ -1485,6 +1505,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '29');
 		let rank = message.guild.roles.find('name', '29');
@@ -1498,6 +1519,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '30');
 		let rank = message.guild.roles.find('name', '30');
@@ -1511,6 +1533,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '31');
 		let rank = message.guild.roles.find('name', '31');
@@ -1524,6 +1547,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '32');
 		let rank = message.guild.roles.find('name', '32');
@@ -1537,6 +1561,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '33');
 		let rank = message.guild.roles.find('name', '33');
@@ -1550,6 +1575,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '34');
 		let rank = message.guild.roles.find('name', '34');
@@ -1563,6 +1589,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '35');
 		let rank = message.guild.roles.find('name', '35');
@@ -1576,6 +1603,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '36');
 		let rank = message.guild.roles.find('name', '36');
@@ -1589,6 +1617,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '37');
 		let rank = message.guild.roles.find('name', '37');
@@ -1602,6 +1631,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '38');
 		let rank = message.guild.roles.find('name', '38');
@@ -1615,6 +1645,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '39');
 		let rank = message.guild.roles.find('name', '39');
@@ -1628,6 +1659,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '40');
 		let rank = message.guild.roles.find('name', '40');
@@ -1641,6 +1673,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '41');
 		let rank = message.guild.roles.find('name', '41');
@@ -1654,6 +1687,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '42');
 		let rank = message.guild.roles.find('name', '42');
@@ -1667,6 +1701,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '43');
 		let rank = message.guild.roles.find('name', '43');
@@ -1680,6 +1715,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '44');
 		let rank = message.guild.roles.find('name', '44');
@@ -1693,6 +1729,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '45');
 		let rank = message.guild.roles.find('name', '45');
@@ -1706,6 +1743,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '46');
 		let rank = message.guild.roles.find('name', '46');
@@ -1719,6 +1757,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '47');
 		let rank = message.guild.roles.find('name', '47');
@@ -1732,6 +1771,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '48');
 		let rank = message.guild.roles.find('name', '48');
@@ -1745,6 +1785,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '49');
 		let rank = message.guild.roles.find('name', '49');
@@ -1758,6 +1799,7 @@ client.on('message', message => {
 		
 			let args = message.content.split(' ').slice(1);
 	if (message.content.startsWith("-delete-colors")) {
+	if(!message.channel.guild) return
 		if(!message.member.hasPermission('MANAGE_ROLES')) return
 		let role = message.guild.roles.find('name', '50');
 		let rank = message.guild.roles.find('name', '50');
@@ -7581,6 +7623,7 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 	}
   if (message.content === '-colorslist') {
       if (!message.channel.guild) return;
+      if(!message.guild.member(client.user).hasPermission('ATTACH_FILES'))return message.reply("**I Don't Have Permission 'ATTACH_FILES' ليس لدي صلاحية")
     message.channel.sendFile('./colors.png');
   }
 	
@@ -7687,6 +7730,8 @@ let welcomer = member.guild.channels.find("name","welcome");
 
 client.on('message', message => {
     if (message.content.startsWith("-quran")) {
+        if(!message.author.bot) return
+        if(!message.channel.guild) return
 	let pages = ['http://quran.ksu.edu.sa/ayat/safahat1/1.png','http://quran.ksu.edu.sa/ayat/safahat1/2.png','http://quran.ksu.edu.sa/ayat/safahat1/3.png','http://quran.ksu.edu.sa/ayat/safahat1/4.png','http://quran.ksu.edu.sa/ayat/safahat1/5.png','http://quran.ksu.edu.sa/ayat/safahat1/6.png','http://quran.ksu.edu.sa/ayat/safahat1/7.png','http://quran.ksu.edu.sa/ayat/safahat1/8.png','http://quran.ksu.edu.sa/ayat/safahat1/9.png','http://quran.ksu.edu.sa/ayat/safahat1/10.png','http://quran.ksu.edu.sa/ayat/safahat1/11.png','http://quran.ksu.edu.sa/ayat/safahat1/12.png','http://quran.ksu.edu.sa/ayat/safahat1/13.png','http://quran.ksu.edu.sa/ayat/safahat1/14.png','http://quran.ksu.edu.sa/ayat/safahat1/15.png','http://quran.ksu.edu.sa/ayat/safahat1/16.png','http://quran.ksu.edu.sa/ayat/safahat1/17.png','http://quran.ksu.edu.sa/ayat/safahat1/18.png','http://quran.ksu.edu.sa/ayat/safahat1/19.png','http://quran.ksu.edu.sa/ayat/safahat1/20.png','http://quran.ksu.edu.sa/ayat/safahat1/21.png','http://quran.ksu.edu.sa/ayat/safahat1/22.png','http://quran.ksu.edu.sa/ayat/safahat1/23.png','http://quran.ksu.edu.sa/ayat/safahat1/24.png','http://quran.ksu.edu.sa/ayat/safahat1/25.png','http://quran.ksu.edu.sa/ayat/safahat1/26.png','http://quran.ksu.edu.sa/ayat/safahat1/27.png','http://quran.ksu.edu.sa/ayat/safahat1/28.png','http://quran.ksu.edu.sa/ayat/safahat1/29.png','http://quran.ksu.edu.sa/ayat/safahat1/30.png','http://quran.ksu.edu.sa/ayat/safahat1/31.png','http://quran.ksu.edu.sa/ayat/safahat1/32.png','http://quran.ksu.edu.sa/ayat/safahat1/33.png','http://quran.ksu.edu.sa/ayat/safahat1/34.png','http://quran.ksu.edu.sa/ayat/safahat1/35.png','http://quran.ksu.edu.sa/ayat/safahat1/36.png','http://quran.ksu.edu.sa/ayat/safahat1/37.png','http://quran.ksu.edu.sa/ayat/safahat1/38.png','http://quran.ksu.edu.sa/ayat/safahat1/39.png','http://quran.ksu.edu.sa/ayat/safahat1/40.png','http://quran.ksu.edu.sa/ayat/safahat1/41.png','http://quran.ksu.edu.sa/ayat/safahat1/42.png','http://quran.ksu.edu.sa/ayat/safahat1/43.png','http://quran.ksu.edu.sa/ayat/safahat1/44.png','http://quran.ksu.edu.sa/ayat/safahat1/45.png','http://quran.ksu.edu.sa/ayat/safahat1/46.png','http://quran.ksu.edu.sa/ayat/safahat1/47.png','http://quran.ksu.edu.sa/ayat/safahat1/48.png','http://quran.ksu.edu.sa/ayat/safahat1/49.png','http://quran.ksu.edu.sa/ayat/safahat1/50.png','http://quran.ksu.edu.sa/ayat/safahat1/51.png','http://quran.ksu.edu.sa/ayat/safahat1/52.png','http://quran.ksu.edu.sa/ayat/safahat1/53.png','http://quran.ksu.edu.sa/ayat/safahat1/55.png','http://quran.ksu.edu.sa/ayat/safahat1/56.png','http://quran.ksu.edu.sa/ayat/safahat1/57.png','http://quran.ksu.edu.sa/ayat/safahat1/58.png','http://quran.ksu.edu.sa/ayat/safahat1/59.png','http://quran.ksu.edu.sa/ayat/safahat1/60.png','http://quran.ksu.edu.sa/ayat/safahat1/60.png','http://quran.ksu.edu.sa/ayat/safahat1/61.png','http://quran.ksu.edu.sa/ayat/safahat1/62.png','http://quran.ksu.edu.sa/ayat/safahat1/63.png','http://quran.ksu.edu.sa/ayat/safahat1/64.png','http://quran.ksu.edu.sa/ayat/safahat1/65.png','http://quran.ksu.edu.sa/ayat/safahat1/66.png','http://quran.ksu.edu.sa/ayat/safahat1/67.png','http://quran.ksu.edu.sa/ayat/safahat1/68.png','http://quran.ksu.edu.sa/ayat/safahat1/69.png','http://quran.ksu.edu.sa/ayat/safahat1/70.png','http://quran.ksu.edu.sa/ayat/safahat1/71.png','http://quran.ksu.edu.sa/ayat/safahat1/72.png','http://quran.ksu.edu.sa/ayat/safahat1/73.png','http://quran.ksu.edu.sa/ayat/safahat1/74.png','http://quran.ksu.edu.sa/ayat/safahat1/75.png','http://quran.ksu.edu.sa/ayat/safahat1/76.png','http://quran.ksu.edu.sa/ayat/safahat1/77.png','http://quran.ksu.edu.sa/ayat/safahat1/78.png','http://quran.ksu.edu.sa/ayat/safahat1/79.png','http://quran.ksu.edu.sa/ayat/safahat1/80.png','http://quran.ksu.edu.sa/ayat/safahat1/81.png','http://quran.ksu.edu.sa/ayat/safahat1/82.png','http://quran.ksu.edu.sa/ayat/safahat1/83.png','http://quran.ksu.edu.sa/ayat/safahat1/84.png','http://quran.ksu.edu.sa/ayat/safahat1/85.png','http://quran.ksu.edu.sa/ayat/safahat1/86.png','http://quran.ksu.edu.sa/ayat/safahat1/87.png','http://quran.ksu.edu.sa/ayat/safahat1/88.png','http://quran.ksu.edu.sa/ayat/safahat1/89.png','http://quran.ksu.edu.sa/ayat/safahat1/90.png','http://quran.ksu.edu.sa/ayat/safahat1/91.png','http://quran.ksu.edu.sa/ayat/safahat1/92.png','http://quran.ksu.edu.sa/ayat/safahat1/93.png','http://quran.ksu.edu.sa/ayat/safahat1/94.png','http://quran.ksu.edu.sa/ayat/safahat1/95.png','http://quran.ksu.edu.sa/ayat/safahat1/96.png','http://quran.ksu.edu.sa/ayat/safahat1/97.png','http://quran.ksu.edu.sa/ayat/safahat1/98.png','http://quran.ksu.edu.sa/ayat/safahat1/99.png','http://quran.ksu.edu.sa/ayat/safahat1/100.png','http://quran.ksu.edu.sa/ayat/safahat1/101.png','http://quran.ksu.edu.sa/ayat/safahat1/102.png','http://quran.ksu.edu.sa/ayat/safahat1/103.png','http://quran.ksu.edu.sa/ayat/safahat1/104.png','http://quran.ksu.edu.sa/ayat/safahat1/105.png','http://quran.ksu.edu.sa/ayat/safahat1/106.png','http://quran.ksu.edu.sa/ayat/safahat1/107.png','http://quran.ksu.edu.sa/ayat/safahat1/108.png','http://quran.ksu.edu.sa/ayat/safahat1/109.png','http://quran.ksu.edu.sa/ayat/safahat1/110.png','http://quran.ksu.edu.sa/ayat/safahat1/111.png','http://quran.ksu.edu.sa/ayat/safahat1/112.png','http://quran.ksu.edu.sa/ayat/safahat1/113.png','http://quran.ksu.edu.sa/ayat/safahat1/114.png','http://quran.ksu.edu.sa/ayat/safahat1/115.png','http://quran.ksu.edu.sa/ayat/safahat1/116.png','http://quran.ksu.edu.sa/ayat/safahat1/117.png','http://quran.ksu.edu.sa/ayat/safahat1/118.png','http://quran.ksu.edu.sa/ayat/safahat1/119.png','http://quran.ksu.edu.sa/ayat/safahat1/120.png','http://quran.ksu.edu.sa/ayat/safahat1/121.png','http://quran.ksu.edu.sa/ayat/safahat1/122.png','http://quran.ksu.edu.sa/ayat/safahat1/123.png','http://quran.ksu.edu.sa/ayat/safahat1/124.png','http://quran.ksu.edu.sa/ayat/safahat1/125.png','http://quran.ksu.edu.sa/ayat/safahat1/126.png','http://quran.ksu.edu.sa/ayat/safahat1/127.png','http://quran.ksu.edu.sa/ayat/safahat1/128.png','http://quran.ksu.edu.sa/ayat/safahat1/129.png','http://quran.ksu.edu.sa/ayat/safahat1/130.png','http://quran.ksu.edu.sa/ayat/safahat1/131.png','http://quran.ksu.edu.sa/ayat/safahat1/132.png','http://quran.ksu.edu.sa/ayat/safahat1/133.png','http://quran.ksu.edu.sa/ayat/safahat1/134.png','http://quran.ksu.edu.sa/ayat/safahat1/135.png','http://quran.ksu.edu.sa/ayat/safahat1/136.png','http://quran.ksu.edu.sa/ayat/safahat1/137.png','http://quran.ksu.edu.sa/ayat/safahat1/138.png','http://quran.ksu.edu.sa/ayat/safahat1/139.png','http://quran.ksu.edu.sa/ayat/safahat1/140.png','http://quran.ksu.edu.sa/ayat/safahat1/141.png','http://quran.ksu.edu.sa/ayat/safahat1/142.png','http://quran.ksu.edu.sa/ayat/safahat1/143.png','http://quran.ksu.edu.sa/ayat/safahat1/144.png','http://quran.ksu.edu.sa/ayat/safahat1/145.png','http://quran.ksu.edu.sa/ayat/safahat1/146.png','http://quran.ksu.edu.sa/ayat/safahat1/147.png','http://quran.ksu.edu.sa/ayat/safahat1/148.png','http://quran.ksu.edu.sa/ayat/safahat1/149.png','http://quran.ksu.edu.sa/ayat/safahat1/150.png','http://quran.ksu.edu.sa/ayat/safahat1/151.png','http://quran.ksu.edu.sa/ayat/safahat1/152.png','http://quran.ksu.edu.sa/ayat/safahat1/153.png','http://quran.ksu.edu.sa/ayat/safahat1/154.png','http://quran.ksu.edu.sa/ayat/safahat1/155.png','http://quran.ksu.edu.sa/ayat/safahat1/156.png','http://quran.ksu.edu.sa/ayat/safahat1/157.png','http://quran.ksu.edu.sa/ayat/safahat1/158.png','http://quran.ksu.edu.sa/ayat/safahat1/159.png','http://quran.ksu.edu.sa/ayat/safahat1/160.png','http://quran.ksu.edu.sa/ayat/safahat1/161.png','http://quran.ksu.edu.sa/ayat/safahat1/162.png','http://quran.ksu.edu.sa/ayat/safahat1/163.png','http://quran.ksu.edu.sa/ayat/safahat1/164.png','http://quran.ksu.edu.sa/ayat/safahat1/165.png','http://quran.ksu.edu.sa/ayat/safahat1/166.png','http://quran.ksu.edu.sa/ayat/safahat1/167.png','http://quran.ksu.edu.sa/ayat/safahat1/168.png','http://quran.ksu.edu.sa/ayat/safahat1/169.png','http://quran.ksu.edu.sa/ayat/safahat1/170.png','http://quran.ksu.edu.sa/ayat/safahat1/171.png','http://quran.ksu.edu.sa/ayat/safahat1/172.png','http://quran.ksu.edu.sa/ayat/safahat1/173.png','http://quran.ksu.edu.sa/ayat/safahat1/174.png','http://quran.ksu.edu.sa/ayat/safahat1/175.png','http://quran.ksu.edu.sa/ayat/safahat1/176.png','http://quran.ksu.edu.sa/ayat/safahat1/177.png','http://quran.ksu.edu.sa/ayat/safahat1/178.png','http://quran.ksu.edu.sa/ayat/safahat1/179.png','http://quran.ksu.edu.sa/ayat/safahat1/180.png','http://quran.ksu.edu.sa/ayat/safahat1/181.png','http://quran.ksu.edu.sa/ayat/safahat1/182.png','http://quran.ksu.edu.sa/ayat/safahat1/183.png','http://quran.ksu.edu.sa/ayat/safahat1/184.png','http://quran.ksu.edu.sa/ayat/safahat1/185.png','http://quran.ksu.edu.sa/ayat/safahat1/186.png','http://quran.ksu.edu.sa/ayat/safahat1/187.png','http://quran.ksu.edu.sa/ayat/safahat1/188.png','http://quran.ksu.edu.sa/ayat/safahat1/189.png','http://quran.ksu.edu.sa/ayat/safahat1/190.png','http://quran.ksu.edu.sa/ayat/safahat1/191.png','http://quran.ksu.edu.sa/ayat/safahat1/192.png','http://quran.ksu.edu.sa/ayat/safahat1/193.png','http://quran.ksu.edu.sa/ayat/safahat1/194.png','http://quran.ksu.edu.sa/ayat/safahat1/195.png','http://quran.ksu.edu.sa/ayat/safahat1/196.png','http://quran.ksu.edu.sa/ayat/safahat1/197.png','http://quran.ksu.edu.sa/ayat/safahat1/198.png','http://quran.ksu.edu.sa/ayat/safahat1/199.png','http://quran.ksu.edu.sa/ayat/safahat1/200.png']
 	let page = 1;
 	
@@ -7764,6 +7809,8 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content.startsWith("-bot")) {
+        if(!message.author.bot) return
+        if(!message.channel.guild) return
            let uptime = client.uptime;
 
     let days = 0;
@@ -7817,7 +7864,7 @@ let heroo = new Discord.RichEmbed()
 .addField("MyID :","**[ "+client.user.id+" ]**",true)
 .addField("RamUsage :",`**[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]**`,true)
 .addField("UpTime :",`**[** **Days:** \`${days}\` **Hours:** \`${hours}\` **Minutes:** \`${minutes}\` **Seconds:** \`${seconds}\` **]**`,true)
-.setFooter(" DK . |")
+.setFooter(" DK BOT |")
   message.channel.send({embed:v1}).then(m => m.edit({embed:heroo})),ms; 
     }
 });
@@ -7869,9 +7916,10 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-     if(!message.channel.guild) return;
+     
 
                 if(message.content.startsWith(prefix + 'allbots')) {
+     if(!message.channel.guild) return;
 
     
     if (message.author.bot) return;
@@ -7895,28 +7943,28 @@ client.on("message", message => {
   if (message.author.bot) return;
   
   let command = message.content.split(" ")[0];
-  
+
   if (command === "-mute") {
-        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("**:x: | You Dont Have Permission ``Manage Roles`` ليس لديك صلاحية | :x:**").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'log');
   let muteRole = client.guilds.get(message.guild.id).roles.find('name', 'Muted');
-  if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('** يجب عليك منشنت شخص اولاً**').catch(console.error);
+  if (!muteRole) return message.reply("**:x: |I Did Not Find 'Muted' Role | 'Muted' لم اجد رتبة **").catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('**You Must Mention Some One | يـحـب مـنـشـنـة شـخـص**').catch(console.error);
   
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
-    .addField('تم ميوت:', `${user.username}#${user.discriminator} (${user.id})`)
-    .addField('بواسطة:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('تم ميوت | Muted', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('بواسطة | By', `${message.author.username}#${message.author.discriminator}`)
    
-   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('** لا يوجد لدي برمشن Manage Roles **').catch(console.error);
+ if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**:x: | I Dont Have Permission ``Manage Roles`` ليس لدي صلاحية | :x:**")
  
   if (message.guild.member(user).roles.has(muteRole.id)) {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
+return message.reply("**Member Has Muted .. :white_check_mark: .. تم اعطاء العضو ميوت**").catch(console.error);
 } else {
     message.guild.member(user).addRole(muteRole).then(() => {
-return message.reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
+return message.reply("**Member Has Muted .. :white_check_mark: .. تم اعطاء العضو ميوت كتابي**").catch(console.error);
 });
   }
 
@@ -7924,39 +7972,6 @@ return message.reply("**:white_check_mark: .. تم اعطاء العضو ميو�
 
 });
 
-client.on('message', message => {
-    if(message.content.startsWith ("-marry")) {
-    if(!message.channel.guild) return message.reply('** This command only for servers **')
-    var proposed = message.mentions.members.first()
-   
-    if(!message.mentions.members.first()) return message.reply(' :smirk: ** :smirk: لازم تطلب ايد وحدة :smirk: **').catch(console.error);
-    if(message.mentions.users.size > 1) return message.reply(' :flushed: **ولد ما يصحلك الا حرمة وحدة كل مرة**').catch(console.error);
-     if(proposed === message.author) return message.reply(`**خنثى ؟ **`);
-      if(proposed === client.user) return message.reply(`** تبي تتزوجني؟ **`);
-            message.channel.send(`**${proposed} 
-بدك تقبلي عرض الزواج من ${message.author} :heart_eyes: 
-العرض لمدة 15 ثانية   :clock: 
-__اكتبي __موافقة__ او __لا**`)
-
-const filter = m => m.content.startsWith("موافقة");
-message.channel.awaitMessages(filter, { max: 1, time: 15000, errors: ['time'] })
-.then(collected =>{ 
-  message.channel.send(` **:cherry_blossom:${message.author} و ${proposed} الف الف مبروك الله , يرزقكم الذرية الصالحة:cherry_blossom:** `);
-})
-
- const filte = m => m.content.startsWith("لا");
-message.channel.awaitMessages(filte, { max: 1, time: 15000, errors: ['time'] })
-.then(collected =>{ 
- message.channel.send(`  **:worried:${message.author} تم رفض عرضك:worried:** `);
-})
-      
-}
-});
-
-
-
-
-  
  
 
 
@@ -7965,8 +7980,10 @@ client.on('message', message => {
 	var prefix = "-";
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
-if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return      message.channel.send('**You Do not have permission** `MANAGE_MESSAGES`' );
+if(!message.channel.guild) return 
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return  message.channel.send("**You Don't Have Permission 'MANAGE_MESSAGES' ليس لديك صلاحية **");
+if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Don't Have Permission 'MANAGE_MESSAGES' ليس لدي صلاحية")
+
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let request = `Requested By ${message.author.username}`;
 message.channel.send(`**Are You sure you want to clear the chat?**`).then(msg => {
@@ -7986,7 +8003,7 @@ var msg;
 
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
-        title: "`` Chat Deleted ``",
+        title: "`` Chat Deleted | تم مسح الشات``",
         color: 0x06DF00,
         footer: {
 
@@ -7995,7 +8012,7 @@ var msg;
 
 })
 reaction2.on("collect", r => {
-message.channel.send(`**Chat deletion cancelled**`).then(m => m.delete(5000));
+message.channel.send(`**Chat deletion cancelled | تم الغاء عملية مسح الشات**`).then(m => m.delete(5000));
 msg.delete();
 })
 })
@@ -8020,18 +8037,18 @@ client.on ("guildMemberAdd", member => {
 client.on('message', message => {
     if (message.content.startsWith("-bc")) {
     if (message.channel.type === 'dm') return ;
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`:false: **| ${message.author.username} you need \`ADMINISTRATOR\` Permission to use this Command !**`)
-    if(!message.guild.member(client.user).hasPermission('ADMINISTRATOR'))return message.channel.send(`**:false: | ${message.author.username}  I require the \`ADMINISTRATOR\` permission to send a brodcast !**`)
+    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(`:x: **| You Don't Have Permission 'ADMINSTRATOR' ليس لديك صلاحية **`)
+    if(!message.guild.member(client.user).hasPermission('ADMINISTRATOR'))return message.channel.send(`**:x: | I Don't Have Permission 'ADMINSTRATOR' ليس لدي صلاحية **`)
     let args = message.content.split(' ').slice(1).join(' ')
-    if (!args) return message.reply('يجب وضع رسالة لأرسال البرودكاست');
-    message.reply(`**[ yes | no ] هل أنت متأكد من أنك تريد أرسال البرودكاست ؟ **`).then(() => {
+    if (!args) return message.reply('You Must Write Message To Send Brodcast|يجب وضع رسالة لأرسال البرودكاست');
+    message.reply(`**Are You Sure ? | [yes|نعم] | هل انت متاكد ؟**`).then(() => {
         message.channel.awaitMessages(msg => msg.content == 'yes' || msg.content == "نعم", {
             max: 1,
-            time: 30000,
+            time: 10000,
             errors: ['time']
         })
             .then(() => {
-             message.channel.send('...انتظر قليلا').then(function(m) {
+             message.channel.send('Wait... | ...انتظر قليلا').then(function(m) {
              setTimeout(function() {
                m.edit(`جاري ارسال الرسالة: [▓]1`)
              }, 1000)
@@ -8084,7 +8101,7 @@ client.on('message', message => {
                m.edit(`جاري ارسال الرسالة: [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]100%`)
              }, 27000)
              setTimeout(function() {
-               m.edit(`☑ ${message.guild.memberCount} | تم أرسال الرسالة لـ`)
+               m.edit(`☑|I Sended The Message To ${message.guild.memberCount} | تم أرسال الرسالة لـ|☑`)
              }, 29000)
               }); 
 
@@ -8161,8 +8178,7 @@ if (message.content.startsWith(prefix + 'tr')) {
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix + "say")) return;
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );    
+if(!message.channel.guild) return
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
 
@@ -8193,74 +8209,145 @@ if (message.content.startsWith("-ping")) {
 });
 
 
+
+
+
 client.on('message', message => {
-  if (message.author.x5bz) return;
-  if (!message.content.startsWith(prefix)) return;
+    if (message.content.startsWith("-kick")) {
 
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
 
-  let args = message.content.split(" ").slice(1);
+let kickeduser = message.mentions.users.first();
+if(message.author.client.user) return;
+if(!message.channel.guild) return
+if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send("**You Dont Have Permission 'KICK_MEMBERS' ليس لديك صلاحية**")
+if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.channel.send("**i Dont Have Permission 'KICK_MEMBERS' ليس لدي صلاحية**")
+if(!kickeduser) return message.channel.send("**i Can Not Find This User | لم اجد شخص بهاد الاسم**")
+if (!message.guild.member(kickeduser).kickable) return message.reply("**I Can't Kick This Person | لا يمكنني طرد هدا الشخص**");
+let kickreason = message.content.split(" ").slice(2).join(" ");
+if(!kickreason) return message.channel.send("Please Type Reason... | رجاءا ضع سبب")
 
-  if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  /*let b5bzlog = client.channels.find("name", "5bz-log");
 
-  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+var DK= new Discord.RichEmbed()
+   .setFooter("GOLD BOT", client.user.avatarURL)
+   .setColor('GOLD')
+   .setThumbnail(message.author.avatarURL)
+   .setTitle("KICKED !")
+   .addField("Kicked User:", kickeduser)
+   .addField("Kicked By:",  message.author.username)
+   .addField("Reason:", kickreason)
 
-  message.guild.member(user).kick();
 
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
-}
-});
+   message.channel.send(DK);
+
+
+       message.guild.member(kickeduser).kick(kickreason);
 
 
 
+     let logroom = message.guild.channels.find("name", "log")
+     if(!logroom) return;
 
-client.on("message", function(message) {
-    let toBan = message.mentions.users.first();
-    let toReason = message.content.split(" ").slice(2).join(" ");
-    let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith(prefix + "ban")) {
-       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**# - You dont have enough permissions!**");
-       if(!toBan) return message.reply("**# - Mention a user!**");
-       if(toBan.id === ("447121312960479242")) return message.reply("**# You cannot ban me!**");
-       if(toBan === message.member.guild.owner) return message.reply("**# You cannot ban the owner of the server!**");
-       if(toBan.bannable) return message.reply("**# - I cannot ban someone with a higher role than me!**");
-       if(!toReason) return message.reply("**# - Supply a reason!**")
-       if(toBan.id === message.author.id) return message.reply("**# You cannot ban yourself!**")
-       if(!message.guild.member(toBan).bannable) return message.reply("**# - I cannot ban this person!**")
-       let toEmbed;
-       toEmbed = new Discord.RichEmbed()
-       .setTitle("You have been banned from a server!")
-       .setThumbnail(toBan.avatarURL)
-       .addField("**# - Server:**",message.guild.name,true)
-       .addField("**# - Reason:**",toReason,true)
-       .addField("**# - Banned By:**",message.author,true)
-       if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**# Done! I banned: ${toBan}**`))
-       );
+     var log= new Discord.RichEmbed() 
+     
+     .setColor("RED")
+     .setThumbnail(message.author.avatarURL)
+     .addField("Kicked Member Name", kickeduser,false)
+     .addField("Kicked By", message.author.username,false)
+     .addField("Kicked In:", message.channel,false)
+     .addField("Reason:", kickreason,false)
+     .setFooter("GOLD BOT", client.user.avatarURL)
+     
+       logroom.send(log);
+
+
+       var DM= new Discord.RichEmbed() 
+     
+     .setColor("RED")
+     .setThumbnail(message.author.avatarURL)
+     .setDescription("You Are Kicked")
+     .addField("Kicked By", message.author.username,false)
+     .addField("Reason:", kickreason,false)
+     .setFooter("GOLD BOT", client.user.avatarURL)
+     
+       kickeduser.send(DM);
+
+
+
+
+    }
+    });
+    
+    
+    
+    
+    
+    
+client.on('message', message =>  {
+    if(message.content.startsWith("-ban")) {
+
+                  
+    
+        let banneduser = message.mentions.users.first();
+        if(message.author.client.user) return;
+        if(!message.channel.guild) return 
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.replay("You Don't Have Permission 'BAN_MEMBERS' ليس لديك صلاحية ")
+        if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.replay("i Don't Have Permission 'BAN_MEMBERS' ليس لدي صلاحية ")
+        if(!banneduser) return message.reply("**I Can't Find This User | لم اجد هاد الشخص**")
+        if(!message.guild.member(banneduser).bannable) return message.replay("I Can't Ban This Person | لا يمكنني تبنيد هاد الشخص");
+        let banreason = message.content.split(" ").slice(2).join();
+       if(!banreason) return message.reply("Please Type Reason... | رجاءا ضع سبب")
        
-   }
-});
+
+
+       var DK= new Discord.RichEmbed()
+       .setFooter("GOLD BOT", client.user.avatarURL)
+       .setColor('GOLD')
+       .setThumbnail(message.author.avatarURL)
+       .setTitle("BANNED !")
+       .addField("Banned User:", banneduser)
+       .addField("Banned By:",  message.author.username)
+       .addField("Reason:", banreason)
+    
+    
+       message.channel.send(DK);
+    
+    
+           message.guild.member(banneduser).ban(banreason);
+    
+    
+    
+         let logroom = message.guild.channels.find("name", "log")
+         if(!logroom) return;
+    
+         var log= new Discord.RichEmbed() 
+         
+         .setColor("RED")
+         .setThumbnail(message.author.avatarURL)
+         .addField("Banned Member Name", banneduser,false)
+         .addField("Banned By", message.author.username,false)
+         .addField("Banned In:", message.channel,false)
+         .addField("Reason:", banreason,false)
+         .setFooter("GOLD BOT", client.user.avatarURL)
+         
+           logroom.send(log);
+    
+    
+           var DM= new Discord.RichEmbed() 
+         
+         .setColor("RED")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription("You Are Banned")
+         .addField("Banned By", message.author.username,false)
+         .addField("Reason:", banreason,false)
+         .setFooter("GOLD BOT", client.user.avatarURL)
+         
+           banneduser.send(DM);
+    
+    
+    
+    
+        }
+        });
 
 
 
@@ -8316,7 +8403,7 @@ client.on('message', message => {
  
 if (message.content.startsWith(prefix + 'minecraft')) {
 
-  if(!message.channel.guild) return message.reply('** This command only for servers **');
+  if(!message.channel.guild) return 
 var client= new Discord.RichEmbed()
 .setTitle("لعبة ماين كرافت ..")
 .setColor('RANDOM')
@@ -8335,21 +8422,13 @@ message.react("??")
              client.on('message', message => {
                 if(message.content === prefix + "inv") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: Click To Invite DK BOT :arrow_left:**")
+                    .setColor("RED")
+                    .setThumbnail(message.author.avatarURL)
+                    .setFooter("DK BOT", client.user.avatarURL)
+                	 embed.setTitle("**:arrow_right: Click To Invite DK BOT | اضغط هنا لاضافة البوت :arrow_left:**")
                     .setURL("https://discordapp.com/oauth2/authorize?client_id=452208760551768065&scope=bot&permissions=1");
                    message.channel.sendEmbed(embed);
                   }
-});
-
-
-client.on('message', message => {
-       if (message.content.startsWith(prefix + '-nameservers')) {
- if (message.author.id !== '459397282169618462') return message.reply('** This Command Only For Bot Owner | هاد الامر لصاحب البوت وشكرا **')
- if(!message.author.id === '459397282169618462') return;
-           if(!message.channel.guild) return 
-     let msg =  client.guilds.map(guild => `**${guild.name}** عدد الاعضاء: ${guild.memberCount}`).join('\n');
-  message.channel.send(`${msg}`);
-}
 });
 
 
@@ -8379,8 +8458,9 @@ client.on('message', message => {
       let command = message.content.split(" ")[0];
       command = command.slice(prefix.length);
         if(command === "mcskin") {
+            if(!message.channel.guild) return
                 const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
+        if (!args) return message.channel.send("** Type your skin name | ضع اسم حسابك في ماينكرافت**");
         const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
     message.channel.send(image)
         }
@@ -8397,9 +8477,10 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["459397282169618462"];
 if (message.content.startsWith(prefix + 'ownerbot')) {
-if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**  انت صاحب البوت **` + `✅`)
+    if(!message.channel.guild) return
+if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**You Are Bot Owner | انت صاحب البوت **` + `✅`)
 } else {
-   message.reply('**انت لست صاحب البوت**' + '❌');   
+   message.reply('**You Are Not Bot Owner | انت لسا صاحب البوت**' + '❌');   
 }
 }
 });
@@ -8419,7 +8500,7 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
 client.on('message', message => {
     if(message.content == ('-id')) {    
  
-             if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s :x:');   
+             if (message.channel.type === 'dm') return    
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
@@ -8550,7 +8631,7 @@ client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('>bcall')){
- if (message.author.id !== '459397282169618462') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if (message.author.id !== '459397282169618462') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
  if(!message.author.id === '459397282169618462') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
@@ -8566,23 +8647,23 @@ m.sendMessage(args)
 
 client.on('message', omar => {
 var prefix = "-";
-if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
+if(omar.content.split(' ')[0] == prefix + 'dc') {  
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
 if(!omar.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return omar.reply("**I Don't Have ` MANAGE_CHANNELS ` Permission**");
 omar.guild.channels.forEach(m => {
 m.delete();
-});// omar jedol / Codes
-}// omar jedol / Codes
-if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
+});
+}
+if(omar.content.split(' ')[0] == prefix + 'dr') { 
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**You Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission**");
 if(!omar.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**I Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission**");
 omar.guild.roles.forEach(m => {
 m.delete();
-});// omar jedol / Codes
+});
 omar.reply("`تم حذف جميع الرتب بنجاح`")
-}// omar jedol / Codes
+}
 });
 
 
@@ -8593,9 +8674,9 @@ client.on('guildMemberRemove', member => {
     var embed = new Discord.RichEmbed()
     .setAuthor(member.user.username, member.user.avatarURL)
     .setThumbnail(member.user.avatarURL)
-    .setTitle(`خرج عضو`)
-    .setDescription(`الى اللقاء...`)
-    .addField(':bust_in_silhouette:   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
+    .setTitle(`خرج عضو|Member Left`)
+    .setDescription(`الى اللقاء...|GoodBye`)
+    .addField(':bust_in_silhouette:   تبقي|Left',`**[ ${member.guild.memberCount} ]**`,true)
     .setColor('RED')
     .setFooter(`DK BOT`, '')
 
@@ -8629,6 +8710,7 @@ client.on('message', message => {
     if (message.content === "-rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
+                      if(!message.channel.guild) return
 
         var channels = message.guild.channels.map(channels => `${channels.name}, `).join(' ')
         const embed = new Discord.RichEmbed()
@@ -8648,26 +8730,28 @@ client.on('message', message => {
 client.on('message', message => {
 var prefix = "-";
        if(message.content === prefix + "mutechannel") {
-                           if(!message.channel.guild) return message.reply('** This command only for servers**');
+                           if(!message.channel.guild) return 
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
-              message.channel.overwritePermissions(message.guild.id, {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Don't Have Permission 'MANAGE_MESSAGES' ليس لديك صلاحية**');
+                      if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Don't Have Permission 'MANAGE_MESSAGES' ليس لدي صلاحية")
+			 message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+                  message.reply("**__تم تقفيل الشات__ :white_check_mark: Chat Locked**")
               });
                 }
-//FIRE BOT
+
     if(message.content === prefix + "unmutechannel") {
                         if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
-              message.channel.overwritePermissions(message.guild.id, {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **You Don't Have Permission 'MANAGE_MESSAGES' ليس لديك صلاحية**');
+         if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.reply("**I Don't Have Permission 'MANAGE_MESSAGES' ليس لدي صلاحية")          
+		  message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**__تم فتح الشات__:white_check_mark:**")
+                  message.reply("**__تم فتح الشات__:white_check_mark: Chat UnLocked**")
               });
     }
        
@@ -8677,11 +8761,10 @@ var prefix = "-";
 
 
 
-
 client.on('message', message => {
 	 var prefix ="-";
  if(message.content.startsWith(prefix +"server")){
-if(!message.channel.guild) return message.reply(' ');
+if(!message.channel.guild) return 
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
 const now = new Date();
 dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
@@ -8719,7 +8802,7 @@ message.channel.sendEmbed(embed)
       .setFooter(message.author.username, message.author.avatarURL)
       .setTitle(':tulip:| Members info')
       .addBlankField(true)
-      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
+      .addField('عدد اعضاء السيرفر|Number Of Server Member',`${message.guild.memberCount}`)
       message.channel.send(IzRo);
     });
     
@@ -8780,6 +8863,8 @@ client.on('message',function(message) {
     let messageArray = message.content.split(" ");
     let args = messageArray[1];
    if(message.content.startsWith(prefix + "counting")) {
+ if (message.author.id !== '459397282169618462') return message.reply('** This Command Only For Bot Owner هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '459397282169618462') return;
        if(!args) return message.reply('ℹ ``اختر رقم``');
        let i;
        for (i = 0; i < `${parseInt(args) + 1}`; ++i)
@@ -8867,54 +8952,29 @@ client.on('message', function(message) {
 });   
    
    
-   
-client.on('message', message => {
-  var prefix ="-"; 
-if (message.content.startsWith(prefix + 'rewards')) {
-         if(!message.channel.guild) return;
-         var DK = new Discord.RichEmbed()
-         .setColor('RANDOM')
-         .setTitle(":gift: ÷Invites Rewards")
-         .addField("**5 Invites : Rank STAR I :star:**",`**[ ${prefix} ]**`)
-		 .addField("**10 Invites : Rank STAR II :star::star:**",`**[ ${prefix} ]**`)
-		 .addField("**15 Invites : Rank STAR III :star::star::star:**",`**[ ${prefix} ]**`)
-		 .addField("**20 Invites : Rank STAR IV :star::star::star::star:**",`**[ ${prefix} ]**`)
-		 .addField("**25 Invites : Rank STAR V :star::star::star::star::star:**",`**[ ${prefix} ]**`)
-		 .addField("**50 Invites : MineCraft Account FullData**",`**[ ${prefix} ]**`)
-		 .addField("**100 Invites : MineCraft Account FullAccess**",`**[ ${prefix} ]**`)
-		 .addField("**150 Invites : MineCraft Account FullAccess + FullData**",`**[ ${prefix} ]**`)
-		 .addField("**200 Invites : MineCraft Account FullAccess x2**",`**[ ${prefix} ]**`)	
-		 .addField("**250 Invites : MineCraft Account FullData + Cape Optifine**",`**[ ${prefix} ]**`)	
-		 .addField("**350 Invites : MineCraft Account FullAccess + 1$ + Cape Optifine**",`**[ ${prefix} ]**`)	
-		 .setFooter('DK BOT' , client.user.avatarURL)
-                  message.channel.send({embed:DK});
-
-    }
-});
-
 
 
    
  client.on('message', message => {
 if(message.content.startsWith(prefix +'sug')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.channel.guild) return 
       const A8tra7Room = message.guild.channels.find("name", "suggestions")
-      if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
+      if(!message.channel.guild) return 
    let a8tra7 = message.content.split(" ").slice(1);
    var m8tr7 = message.author.id
-if(!message.guild.channels.find("name","suggestions")) return message.channel.send('انشء روم باسم   \`suggestions \`')
+if(!message.guild.channels.find("name","suggestions")) return message.channel.send('Create Room With This Name 'suggestions' انشئ روم باسم')
 var Eror = new Discord.RichEmbed()
    .setTimestamp()
-   .setDescription(`الرجاء كتابت إقتراحك بعد الأمر `)
+   .setDescription(`الرجاء كتابت إقتراحك بعد الأمر | Please type your suggestion after the command`)
    if(!a8tra7.join(" ")) return message.channel.send(Eror).then(message => {message.delete(50000)});
    var ThxForSug = new Discord.RichEmbed()
    .setTitle(`:white_check_mark: Success!`)
    .setTimestamp()
-   .setDescription(`شكراً على اقتراحك !`)
+   .setDescription(`شكراً على اقتراحك | Thank You For Suggest`)
 .setDescription(`**Your Suggestion** : ${a8tra7}`)
    var Sure = new Discord.RichEmbed()
    .setTimestamp()
-   .setTitle(`هل انت متأكد من ارسال الاقتراح؟ معك دقيقه قبل الالغاء`)
+   .setTitle(`Are You Sure ? | هل أنت متاكد ؟`)
 .setDescription(`Suggestion : **${a8tra7}**`)
 		 .setFooter('DK BOT' , client.user.avatarURL)
 message.channel.sendEmbed(Sure).then(msg => {
@@ -8940,7 +9000,7 @@ Yes.on("collect", r => {
 msg.delete();
 })
 No.on("collect", r => {
-message.channel.send('تم الغاء اقتراحط بنجاح :white_check_mark: ').then(message => {message.delete(4000)})
+message.channel.send('Your Suggest Has Been Cancelled|تم الغاء اقتراحط بنجاح :white_check_mark: ').then(message => {message.delete(4000)})
 msg.delete();
 })
 })
@@ -8956,7 +9016,7 @@ client.on('message', message => {
 	var prefix = "-";
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+if(!args[0]) return message.reply('Please Type Some word after the command | اكتب كلمة بعد الامر');  
 
     figlet(args.join(" "), (err, data) => {
               message.channel.send("```" + data + "```")
@@ -9011,68 +9071,6 @@ client.on("guildMemberAdd", (member) => {
         })
     })
 });
-
-
-
-
-
-var roles = {};
- 
- 
- 
- 
-client.on("message", message => {
-    var args = message.content.split(' ').slice(1);
-    var msg = message.content.toLowerCase();
-    if( !message.guild ) return;
-    if( !msg.startsWith( prefix + 'role' ) ) return;
-	    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
-    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
-    if( msg.toLowerCase().startsWith( prefix + 'rerole ;' ) ){
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
-        var role = msg.split(' ').slice(2).join(" ").toLowerCase();
-        var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
-            message.mentions.members.first().removeRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
-        }
-        if( args[0].toLowerCase() == "all" ){
-			    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
-    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
-            message.guild.members.forEach(m=>m.removeRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
-        } else if( args[0].toLowerCase() == "bots" ){
-            message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
-        } else if( args[0].toLowerCase() == "humans" ){
-            message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
-        }  
-    } else {
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
-        var role = msg.split(' ').slice(2).join(" ").toLowerCase();
-        var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
-            message.mentions.members.first().addRole( role1 );
-            return message.reply('** بواسطة  [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
-        }
-        if( args[0].toLowerCase() == "all" ){
-			    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`:x: **| ${message.author.username} you need \`MANAGE_ROLES\` Permission to use this Command !**`)
-    if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES'))return message.channel.send(`**:x: | ${message.author.username}  I require the \`MANAGE_ROLES\` permission to give roles**`)
-            message.guild.members.forEach(m=>m.addRole( role1 ))
-            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء الكل رتبة**');
-        } else if( args[0].toLowerCase() == "bots" ){
-            message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
-        } else if( args[0].toLowerCase() == "humans" ){
-            message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('** بواسطة  [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
-        }
-    }
-});
-
 
 
 
@@ -9140,7 +9138,7 @@ const Sra7a = [
 ]
    client.on('message', message => {
  if (message.content.startsWith('-صراحة')) {
-     if(!message.channel.guild) return message.reply('** This command only for servers **');
+     if(!message.channel.guild) return 
   var client= new Discord.RichEmbed()
   .setTitle("لعبة صراحة ..")
   .setColor('RANDOM')
@@ -9212,7 +9210,7 @@ const Za7f = [
 
  client.on('message', message => {
    if (message.content.startsWith("-عقاب")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
+                if(!message.channel.guild) return 
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
@@ -9247,7 +9245,7 @@ const secreT = [
 
  client.on('message', message => {
    if (message.content.startsWith("-خواطر")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
+                if(!message.channel.guild) return 
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
 
@@ -9267,7 +9265,7 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
 
  client.on('message', message => {
    if (message.content.startsWith("-حب")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
+                if(!message.channel.guild) return 
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
@@ -9399,6 +9397,8 @@ client.on("message", message => {
 📍**-sug **= للاقتراح | Suggestion
 📍**-avatar** = افاتار حقك | Your AvaTar
 📍**-tag** = كلام بس بشكل حلو  | Write Words But BeTTer
+📍**-afk** = ادا تبي تافك  | For AFK
+📍**-back** = ادا رجعت  | For Longer AFK
 
 `)
  message.author.sendEmbed(here)
@@ -9428,7 +9428,6 @@ client.on("message", message => {
 📍**-dr** = حدف الرتب | DeleTe Ranks
 📍**-mutechannel** = لقفل الشات | Mute ChanneL
 📍**-unmutechannel** = لفتح الشات | UnMute ChanneL
-📍**-role** = لاعطاء رتبة | Give MemBer Role
 
 
 `)
@@ -9511,13 +9510,13 @@ client.on("message", message => {
 📍**->bcall**
 📍**-ownerbot**
 📍**-ipservers**
-📍**-nameservers**
 📍**-setplaying**
 📍**-setlistening**
 📍**-setwatching**
 📍**-setstreaming**
 📍**-setname**
 📍**-setavatar**
+📍**-DM**
 `)
  message.author.sendEmbed(here)
 }
@@ -9547,9 +9546,6 @@ client.on("message", message => {
 انشئ روم بأسم **left**
 ليودع البوت كل واحد يغادر السيرفر
 
-انشئ روم بأسم **picture**
-سيكون الروم تلقائيا مخصص للصور فقط
-
 انشئ روم بأسم **suggestions**
 سيكون الروم مخصص للاقتراحات 
 لحتى يتمكنوا الاعضاء من الاقتراح
@@ -9563,9 +9559,6 @@ To welcome the bot every one enters the server
 
 Create a **left** Room
 To put out the bot each one leaves the server
-
-Create a **picture** Room
-The room will automatically be for photos only
 
 Create a **suggestions** Room
 The room will be for suggestions
