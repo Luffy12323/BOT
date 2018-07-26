@@ -8962,7 +8962,7 @@ if(!message.channel.guild) return
       if(!message.channel.guild) return 
    let a8tra7 = message.content.split(" ").slice(1);
    var m8tr7 = message.author.id
-if(!message.guild.channels.find("name","suggestions")) return message.channel.send('Create Room With This Name 'suggestions' انشئ روم باسم')
+if(!message.guild.channels.find("name","suggestions")) return message.channel.send('Create Room With This Name suggestions انشئ روم باسم')
 var Eror = new Discord.RichEmbed()
    .setTimestamp()
    .setDescription(`الرجاء كتابت إقتراحك بعد الأمر | Please type your suggestion after the command`)
