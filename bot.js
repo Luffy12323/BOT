@@ -7810,7 +7810,7 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content.startsWith("-bot")) {
         if(!message.author.bot) return
-        if(!message.channel.guild) return;
+
     
            let uptime = client.uptime;
 
@@ -8219,7 +8219,7 @@ client.on('message', message => {
 
 let kickeduser = message.mentions.users.first();
 if(message.author.client.user) return;
-if(!message.channel.guild) return;
+
 if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send("**You Dont Have Permission 'KICK_MEMBERS' ليس لديك صلاحية**")
 if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.channel.send("**i Dont Have Permission 'KICK_MEMBERS' ليس لدي صلاحية**")
 if(!kickeduser) return message.channel.send("**i Can Not Find This User | لم اجد شخص بهاد الاسم**")
@@ -8290,7 +8290,7 @@ client.on('message', message =>  {
     
         let banneduser = message.mentions.users.first();
         if(message.author.client.user) return;
-        if(!message.channel.guild) return;
+
         if(!message.member.hasPermission("BAN_MEMBERS")) return message.replay("You Don't Have Permission 'BAN_MEMBERS' ليس لديك صلاحية ")
         if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.replay("i Don't Have Permission 'BAN_MEMBERS' ليس لدي صلاحية ")
         if(!banneduser) return message.reply("**I Can't Find This User | لم اجد هاد الشخص**")
