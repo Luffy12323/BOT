@@ -9424,8 +9424,8 @@ client.on("message", message => {
       client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-owner") {
-	  if (message.author.id !== '459397282169618462', '469427192011423764') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
- if(!message.author.id === '459397282169618462', '469427192011423764') return;
+	  if (message.author.id !== '459397282169618462' , '469427192011423764') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
+ if(!message.author.id === '459397282169618462' , '469427192011423764') return;
     message.reply(`**
 	
     شيك على الخاص
