@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const fs = require('fs');
-const developers = ["459397282169618462"]
+const developers = ["459397282169618462" , "469427192011423764"]
 const adminprefix = "-";
 const cooldown = new Set();
 var moment = require('moment')
@@ -9424,8 +9424,8 @@ client.on("message", message => {
       client.on("message", message => {
 	var prefix = "-";
  if (message.content === "-help-owner") {
-	  if (message.author.id !== '459397282169618462') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
- if(!message.author.id === '459397282169618462') return;
+	  if (message.author.id !== '459397282169618462', '469427192011423764') return message.reply(' :x: **You Are Not Bot Owner | أنت لست صاحب البوت** :x: ')
+ if(!message.author.id === '459397282169618462', '469427192011423764') return;
     message.reply(`**
 	
     شيك على الخاص
