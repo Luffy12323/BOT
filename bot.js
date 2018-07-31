@@ -8409,7 +8409,7 @@ if (message.content.startsWith(prefix + 'ownerbot')) {
     if(!message.channel.guild) return;
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**You Are Bot Owner | انت صاحب البوت **` + `✅`)
 } else {
-   message.reply('**You Are Not Bot Owner | انت لسا صاحب البوت**' + '❌');   
+   message.reply('**You Are Not Bot Owner | انت لست صاحب البوت**' + '❌');   
 }
 }
 });
