@@ -387,7 +387,7 @@ Servers | السيرفرات : ${client.guilds.size} 🌍
 Users | المستخدمين : ${client.users.size} 👥
 Bot Prefix | بريفكس البوت : [-]
 Help Command | امر المساعدة : -help
-Owner Bot | صاحب البوت : 👑Osama_DK👑#1333 & 👑Osama_DK👑#0876
+Owner Bot | صاحب البوت : нℓ | LuZoNa#5083 | ! 7zb#9606
 
 لآضافة البوت من هاذا الرابط | You Can Invite Bot From This Link
 **
