@@ -9525,4 +9525,4 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return 
 
 
 
-client.login("NTQ2MDE4ODQ4OTkwNjkxMzI4.D0iHSA.e3DDfSweYPL4mgV1IZVEfzo8xTc");
+Bot_Token1
