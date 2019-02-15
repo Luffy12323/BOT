@@ -9525,4 +9525,4 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return 
 
 
 
-Bot_Token1
+client.run('BOT_TOKEN1')
