@@ -9525,4 +9525,4 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return 
 
 
 
-Client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
