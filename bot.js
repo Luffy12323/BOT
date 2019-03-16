@@ -1202,12 +1202,12 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
-  const verifed = ["459397282169618462"];
+  const verifed = ["469427192011423764,479139870959468564"];
 if (message.content.startsWith(prefix + 'ownerbot')) {
     if(!message.channel.guild) return;
 if( verifed.some(word => message.author.id.includes(word)) ) {    return message.channel.sendMessage(`**You Are Bot Owner | انت صاحب البوت **` + `✅`)
 } else {
-   message.reply('**You Are Not Bot Owner | انت لسا صاحب البوت**' + '❌');   
+   message.reply('**You Are Not Bot Owner | انت لست صاحب البوت**' + '❌');   
 }
 }
 });
