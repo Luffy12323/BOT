@@ -2143,7 +2143,7 @@ client.on("message", message => {
 	 **`)
   const here = new Discord.RichEmbed() 
       .setColor("GOLD")
-      .setFooter('DK BOT' , client.user.avatarURL)
+      .setFooter('HS' , client.user.avatarURL)
       .setDescription(`
  ** 📌 Admin Commands | أوامر إدارية 📌**
 📍**-mute** = لأعطاء شخص ميوت | Mute Member
